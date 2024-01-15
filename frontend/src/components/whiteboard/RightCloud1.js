@@ -2,8 +2,10 @@ const RightCloud1 = () => {
   return (
     <div id="right-cloud-1">
       <svg
-        width="214"
-        height="113"
+        // width="214"
+        // height="113"
+        height="100%"
+        width="100%"
         viewBox="0 0 214 113"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

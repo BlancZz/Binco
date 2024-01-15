@@ -2,8 +2,10 @@ const LeftCloud2 = () => {
   return (
     <div id="left-cloud-2">
       <svg
-        width="147"
-        height="122"
+        // width="147"
+        // height="122"
+        height="100%"
+        width="100%"
         viewBox="0 0 147 122"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

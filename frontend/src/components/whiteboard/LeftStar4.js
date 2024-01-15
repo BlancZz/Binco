@@ -2,8 +2,10 @@ const LeftStar4 = () => {
   return (
     <div id="left-star-4">
       <svg
-        width="121"
-        height="130"
+        // width="121"
+        // height="130"
+        height="100%"
+        width="100%"
         viewBox="0 0 121 164"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

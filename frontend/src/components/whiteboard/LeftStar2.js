@@ -1,9 +1,11 @@
 const LeftStar2 = () => {
   return (
-    <div id="left-star-2" className="animated1">
+    <div id="left-star-2">
       <svg
-        width="96"
-        height="150"
+        // width="96"
+        // height="150"
+        height="100%"
+        width="100%"
         viewBox="0 0 96 164"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

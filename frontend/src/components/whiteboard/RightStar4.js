@@ -2,8 +2,10 @@ const RightStar4 = () => {
   return (
     <div id="right-star-4" className="animated">
       <svg
-        width="101"
-        height="110"
+        // width="101"
+        // height="110"
+        height="100%"
+        width="100%"
         viewBox="0 0 101 134"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

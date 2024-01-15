@@ -20,8 +20,8 @@ const WhiteboardDecoration = () => {
       <div className="left-clouds-container">
         <LeftCloud1 />
         <LeftCloud2 />
-        <LeftStar4 />
-        <LeftCloud3 />
+        {/* <LeftStar4 /> */}
+        {/* <LeftCloud3 /> */}
         <LeftStar1 />
         <LeftStar2 />
         <LeftStar3 />
@@ -33,7 +33,7 @@ const WhiteboardDecoration = () => {
         <RightCloud3 />
         <RightStar1 />
         <RightStar2 />
-        <RightStar4 />
+        {/* <RightStar4 /> */}
       </div>
     </div>
   );
