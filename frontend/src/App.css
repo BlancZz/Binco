@@ -36,3 +36,174 @@
     transform: rotate(360deg);
   }
 }
+/* 
+.sky-background {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffb0d1;
+  height: 100vh;
+  position: relative;
+  background-image: url(./components/Desktop\ -\ 1.png);
+} */
+
+.sky-background {
+  background-color: #ffb0d1;
+  height: 100vh;
+  position: relative;
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+.decor {
+  height: 100vh;
+}
+
+.left-clouds-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.right-clouds-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+#left-cloud-1 {
+  position: absolute;
+  top: 13rem;
+}
+
+#left-cloud-2 {
+  position: absolute;
+  top: 31rem;
+}
+
+#left-cloud-3 {
+  position: absolute;
+  top: 47rem;
+}
+
+#left-star-1 {
+  position: absolute;
+  top: 7rem;
+  left: 1rem;
+  scale: 0.5rem;
+}
+
+#left-star-2 {
+  position: absolute;
+  top: 18rem;
+  left: 2rem;
+}
+
+#left-star-3 {
+  position: absolute;
+  top: 32rem;
+  left: 1rem;
+}
+
+#left-star-4 {
+  position: absolute;
+  top: 42.5rem;
+  left: 2rem;
+}
+
+#right-cloud-1 {
+  position: absolute;
+  top: 7rem;
+}
+
+#right-cloud-2 {
+  position: absolute;
+  top: 24rem;
+}
+
+#right-cloud-3 {
+  position: absolute;
+  top: 39rem;
+}
+
+#right-star-1 {
+  position: absolute;
+  top: 4rem;
+  right: 1cap;
+}
+
+#right-star-2 {
+  position: absolute;
+  top: 17rem;
+  right: 2rem;
+}
+
+#right-star-3 {
+  position: absolute;
+  top: 33rem;
+  right: 1rem;
+}
+
+#right-star-4 {
+  position: absolute;
+  top: 43rem;
+  right: 1rem;
+}
+
+#whiteboard {
+  position: absolute;
+  width: 79%;
+  height: 70%;
+  border-color: #f791c8;
+  border-style: solid;
+  border-width: 0.3rem;
+  border-radius: 1rem;
+  background-color: white;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.animated {
+  animation: tilt-shaking 0.8s infinite;
+}
+
+.animated1 {
+  animation: tilt-shaking1 0.9s infinite;
+}
+
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes tilt-shaking1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
