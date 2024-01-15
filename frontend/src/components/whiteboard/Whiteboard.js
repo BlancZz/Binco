@@ -1,6 +1,4 @@
 import React, { useRef, useEffect, useContext } from 'react';
-import ReactCanvasPaint from 'react-canvas-paint';
-import 'react-canvas-paint/dist/index.css';
 
 const Whiteboard = () => {
   // to keep track the coordinates of the line

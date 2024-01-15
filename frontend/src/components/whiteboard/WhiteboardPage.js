@@ -1,6 +1,5 @@
 import Whiteboard from './Whiteboard';
 import WhiteboardDecoration from './WhiteboardDecoration';
-import { ReactSketchCanvas } from 'react-sketch-canvas';
 
 const WhiteboardPage = () => {
   return (
