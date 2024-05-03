@@ -2,26 +2,37 @@ import LeftPlane from './LeftPlane';
 import RightPlane from './RightPlane';
 import Message from './Message';
 import MessageDecoration from './MsgDecoration';
+import plane from './Plane.png';
+import DarkBackground from '../../assets/DarkBackground.png';
+import LightBackground from '../../assets/LightBackground.png';
+import { useTheme } from '../../ThemeContext';
+import BrowserWindow from '../BrowserWindow';
 
 const MessagePage = () => {
-  return (
-    <div
-      className="sunset-background"
-      style={{ position: 'relative', paddingTop: '4rem' }}
-    >
-      <MessageDecoration></MessageDecoration>
+  const { mode } = useTheme();
 
-      <div
-        className="d-flex justify-content-center"
-        style={{ position: 'relative', marginTop: '-4rem' }}
-      >
-        <LeftPlane></LeftPlane>
+  return (
+    // <div
+    //   className="sunset-background"
+    //   style={{ position: 'relative', paddingTop: '4rem' }}
+    // >
+    //   <MessageDecoration></MessageDecoration>
+    // <div
+    //   style={{
+    //     top: '15%',
+    //     width: '100%',
+    //     height: '70%',
+    //     position: 'absolute',
+    //     backgroundImage: `url(${plane})`,
+    //     backgroundSize: 'contain',
+    //     backgroundRepeat: 'no-repeat',
+    //   }}
+    // >
+    <div className="w-full h-full d-flex flex-column  align-items-center">
+      <h1 style={{ textAlign: 'center' }}>Message</h1>
+      <BrowserWindow>
         <Message />
-        <RightPlane></RightPlane>
-      </div>
-      <footer className="position-fixed w-100 text-center p-3 b-0">
-        &copy; 2024 Cool Website. All rights reserved.
-      </footer>
+      </BrowserWindow>
     </div>
   );
 };

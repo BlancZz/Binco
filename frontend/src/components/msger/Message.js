@@ -29,7 +29,7 @@ function Message() {
   const { Send } = DiscordService(clearForm);
 
   const sendToDiscord = () => {
-    const description = Object.entries(formData.data)
+    const description = Object.entries(formData.data, '')
       .map((d) => `${d[0]} : ${d[1]}`)
       .join('\n');
 
@@ -41,8 +41,8 @@ function Message() {
       className="d-flex align-items-center"
       style={{
         height: '100vh',
-        width: '30%',
         minWidth: '20rem',
+        position: 'absolute',
       }}
     >
       <div

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useNavigate } from 'react-router-dom';
+import ModeSwitch from './components/ModeSwitch';
+// import { useTheme } from '@emotion/react';
+import { useTheme } from './ThemeContext';
 
 // /* <ul>
 //   <li><img id='favicon' src="/favicon.ico" alt="logo"></img></li>
@@ -12,19 +15,23 @@ import { useNavigate } from 'react-router-dom';
 // </ul> */
 
 const NavBar = () => {
+  const { mode } = useTheme();
   return (
     <nav
       class="navbar navbar-expand-lg navbar-dark"
       style={{
-        backgroundColor: '#eb78a9',
+        backgroundColor: mode === 'dark' ? '#35354F' : '#eb78a9',
         paddingLeft: '2rem',
         paddingRight: '1rem',
         height: '4rem',
+        width: '100%',
         fontWeight: 'bolder',
         fontSize: '1.1rem',
         position: 'fixed',
         top: '0',
         zIndex: '9',
+        display: 'flex',
+        justifyContent: 'space-between',
       }}
     >
       <a class="navbar-brand" href="#">
@@ -33,8 +40,8 @@ const NavBar = () => {
       <button
         class="navbar-toggler"
         type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
@@ -65,6 +72,7 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
+      <ModeSwitch />
     </nav>
   );
   // return <nav className="flex">
