@@ -22,6 +22,7 @@ const WhiteboardDecoration = () => {
         <LeftCloud2 />
         {/* <LeftStar4 /> */}
         {/* <LeftCloud3 /> */}
+        {/* delete */}
         <LeftStar1 />
         <LeftStar2 />
         <LeftStar3 />
