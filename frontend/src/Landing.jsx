@@ -40,12 +40,31 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import Bees from './Bees.png';
 
+import StrengthMeter from './components/ui/strengthMeter.js';
+
 const Landing = () => {
   const navigate = useNavigate();
   const { mode } = useTheme();
 
   const [activeRotate, setActiveRotate] = React.useState(false);
   const [activeStars, setActiveStars] = React.useState(false);
+
+  const menuKeyDefault = 'Who is this guy?';
+  const menuValueDefault = `I'm a passionate University student who loves building and
+  scaling
+  \n
+  cohesive software. I enjoy adding my own flare to projects
+  and \n
+  hope to one day make a project that substantiates my
+  identity and \n
+  existence. I'm also always down to play some volleyball and
+  chess. \n
+  Let's connect!`;
+
+  const [menuKey, setMenuKey] = React.useState(menuKeyDefault);
+  const [menuValue, setMenuValue] = React.useState(menuValueDefault);
+  const [menuActive, setMenuActive] = React.useState(-1);
+  const [menuScore, setMenuScore] = React.useState(4);
 
   const follower = React.useRef(null);
 
@@ -104,6 +123,8 @@ const Landing = () => {
     transform: activeRotate ? 'rotate(315deg)' : '',
     transition: 'transform 1.25s ease',
   };
+
+  // const menuArray = [];
 
   return (
     <Box
@@ -289,9 +310,9 @@ const Landing = () => {
                 transform: 'scaleY(0.9)',
               }}
             >
-              <div class="hexagon">
+              <Box class="hexagon">
                 here is some content inside the hex if you want...
-              </div>
+              </Box>
             </Box>
 
             <Box
@@ -320,11 +341,11 @@ const Landing = () => {
                     color: '#161b22',
                     height: '9rem',
                     width: '9rem',
-                    borderRadius: '100%',
+                    borderRadius: '25%',
                     backgroundColor: '#242c37',
                     border: '1px solid #242c37',
                     boxShadow: '3px 3px 1px 1px rgba(183, 243, 255, .5)',
-                    margin: '1rem',
+                    margin: '2rem',
                   }}
                 >
                   <svg
@@ -369,11 +390,11 @@ const Landing = () => {
                     color: '#161b22',
                     height: '9rem',
                     width: '9rem',
-                    borderRadius: '100%',
+                    borderRadius: '25%',
                     backgroundColor: '#242c37',
                     border: '1px solid #242c37',
                     boxShadow: '3px 3px 1px 1px rgba(183, 243, 255, .5)',
-                    margin: '1rem',
+                    margin: '2rem',
                   }}
                 >
                   <svg
@@ -398,7 +419,7 @@ const Landing = () => {
                     fontWeight: 'bold',
                   }}
                 >
-                  <h5>I want to love someone :&lt;</h5>
+                  say you say me
                 </Box>
               </Box>
               <Box
@@ -420,11 +441,11 @@ const Landing = () => {
                     color: '#161b22',
                     height: '9rem',
                     width: '9rem',
-                    borderRadius: '100%',
+                    borderRadius: '25%',
                     backgroundColor: '#242c37',
                     border: '1px solid #242c37',
                     boxShadow: '3px 3px 1px 1px rgba(183, 243, 255, .5)',
-                    margin: '1rem',
+                    margin: '2rem',
                   }}
                 >
                   <svg
@@ -469,11 +490,11 @@ const Landing = () => {
                     color: '#161b22',
                     height: '9rem',
                     width: '9rem',
-                    borderRadius: '100%',
+                    borderRadius: '25%',
                     backgroundColor: '#242c37',
                     border: '1px solid #242c37',
                     boxShadow: '3px 3px 1px 1px rgba(183, 243, 255, .5)',
-                    margin: '1rem',
+                    margin: '2rem',
                   }}
                 >
                   <svg
@@ -541,16 +562,39 @@ const Landing = () => {
                       class="toggle"
                       onClick={(e) => {
                         setActiveRotate(!activeRotate);
+                        // e.target.style.transition = 'transform 1.25s ease';
+                        // e.target.style.borderRadius = activeRotate ? '25%' : '50%';
                       }}
                     >
-                      +
+                      <svg
+                        width="75"
+                        height="75"
+                        viewBox="0 0 200 200"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{
+                          transform: activeRotate
+                            ? `rotate(495deg)`
+                            : 'rotate(0deg)',
+                          transition: 'transform 1.25s ease',
+                        }}
+                      >
+                        <path
+                          d="M200 100C200 103.183 198.736 106.235 196.485 108.485C194.235 110.736 191.183 112 188 112H112V188C112 191.183 110.736 194.235 108.485 196.485C106.235 198.736 103.183 200 100 200C96.8174 200 93.7652 198.736 91.5147 196.485C89.2643 194.235 88 191.183 88 188V112H12C8.8174 112 5.76516 110.736 3.51472 108.485C1.26428 106.235 0 103.183 0 100C0 96.8174 1.26428 93.7652 3.51472 91.5147C5.76516 89.2643 8.8174 88 12 88H88V12C88 8.8174 89.2643 5.76516 91.5147 3.51472C93.7652 1.26428 96.8174 0 100 0C103.183 0 106.235 1.26428 108.485 3.51472C110.736 5.76516 112 8.8174 112 12V88H188C191.183 88 194.235 89.2643 196.485 91.5147C198.736 93.7652 200 96.8174 200 100Z"
+                          fill={activeRotate ? '#ffc1c1' : '#c1e7ff'}
+                        />
+                      </svg>
                     </div>
                     <li
                       value={0}
                       clr={'#ff2972'}
                       style={{
                         transform: activeRotate
-                          ? `rotate(0deg) translateX(-35px)`
+                          ? `rotate(360deg) ${
+                              menuActive === 0
+                                ? 'translateX(-55px)'
+                                : 'translateX(-35px)'
+                            }`
                           : 'rotate(0deg) translateX(110px)',
                         transition: 'transform 1.25s ease',
                         color: '#FEFF00',
@@ -563,7 +607,7 @@ const Landing = () => {
                         e.target.style.borderRadius = '50%';
                         e.target.style.color = 'rgba(0, 0, 0, 0.5)';
                         e.target.style.boxShadow =
-                          '0 0 10px #FEFF00, 0 0 30px #FEFF00, 0 0 50px #FEFF00';
+                          '0 0 10px #FEFF00, 0 0 20px #FEFF00, 0 0 30px #FEFF00';
                       }}
                       onMouseOut={(e) => {
                         e.target.style.background = 'none';
@@ -571,22 +615,31 @@ const Landing = () => {
                         e.target.style.color = '#FEFF00';
                         e.target.style.boxShadow = '';
                       }}
+                      onClick={(e) => {
+                        setMenuScore(4);
+                        if (menuKey === 'JS') {
+                          setMenuKey(menuKeyDefault);
+                          setMenuValue(menuValueDefault);
+                          setMenuActive(-1);
+                        } else {
+                          setMenuKey('JS');
+                          setMenuValue(1);
+                          setMenuActive(0);
+                        }
+                      }}
                     >
-                      <a
-                        href="/"
-                        style={{
-                          transform: `rotate(-0deg)`,
-                        }}
-                      >
-                        JS
-                      </a>
+                      <div>JS</div>
                     </li>
                     <li
                       value={1}
                       clr={'#ff2972'}
                       style={{
                         transform: activeRotate
-                          ? `rotate(45deg) translateX(-35px)`
+                          ? `rotate(45deg) ${
+                              menuActive === 1
+                                ? 'translateX(-55px)'
+                                : 'translateX(-35px)'
+                            }`
                           : 'rotate(0deg) translateX(110px)',
                         transition: 'transform 1.25s ease',
                         color: '#04fc43',
@@ -598,7 +651,7 @@ const Landing = () => {
                         e.target.style.borderRadius = '50%';
                         e.target.style.color = 'rgba(0, 0, 0, 0.5)';
                         e.target.style.boxShadow =
-                          '0 0 10px #04fc43, 0 0 30px #04fc43, 0 0 50px #04fc43';
+                          '0 0 10px #04fc43, 0 0 20px #04fc43, 0 0 30px #04fc43';
                       }}
                       onMouseOut={(e) => {
                         e.target.style.background = 'none';
@@ -606,22 +659,37 @@ const Landing = () => {
                         e.target.style.color = '#04fc43';
                         e.target.style.boxShadow = '';
                       }}
+                      onClick={(e) => {
+                        setMenuScore(4);
+                        if (menuKey === 'Py') {
+                          setMenuKey(menuKeyDefault);
+                          setMenuValue(menuValueDefault);
+                          setMenuActive(-1);
+                        } else {
+                          setMenuKey('Py');
+                          setMenuValue(2);
+                          setMenuActive(1);
+                        }
+                      }}
                     >
-                      <a
-                        href="/"
+                      <div
                         style={{
                           transform: `rotate(-45deg)`,
                         }}
                       >
                         Py
-                      </a>
+                      </div>
                     </li>
                     <li
                       value={2}
                       clr={'#ff2972'}
                       style={{
                         transform: activeRotate
-                          ? `rotate(90deg) translateX(-35px)`
+                          ? `rotate(90deg) ${
+                              menuActive === 2
+                                ? 'translateX(-55px)'
+                                : 'translateX(-35px)'
+                            }`
                           : 'rotate(0deg) translateX(110px)',
                         transition: 'transform 1.25s ease',
                         color: '#fea200',
@@ -633,7 +701,7 @@ const Landing = () => {
                         e.target.style.borderRadius = '50%';
                         e.target.style.color = 'rgba(0, 0, 0, 0.5)';
                         e.target.style.boxShadow =
-                          '0 0 10px #fea200, 0 0 30px #fea200, 0 0 50px #fea200';
+                          '0 0 10px #fea200, 0 0 20px #fea200, 0 0 30px #fea200';
                       }}
                       onMouseOut={(e) => {
                         e.target.style.background = 'none';
@@ -641,22 +709,37 @@ const Landing = () => {
                         e.target.style.color = '#fea200';
                         e.target.style.boxShadow = '';
                       }}
+                      onClick={(e) => {
+                        setMenuScore(3);
+                        if (menuKey === 'Java') {
+                          setMenuKey(menuKeyDefault);
+                          setMenuValue(menuValueDefault);
+                          setMenuActive(-1);
+                        } else {
+                          setMenuKey('Java');
+                          setMenuValue(3);
+                          setMenuActive(2);
+                        }
+                      }}
                     >
-                      <a
-                        href="/"
+                      <div
                         style={{
                           transform: `rotate(-90deg)`,
                         }}
                       >
                         Java
-                      </a>
+                      </div>
                     </li>
                     <li
                       value={3}
                       clr={'#ff2972'}
                       style={{
                         transform: activeRotate
-                          ? `rotate(135deg) translateX(-35px)`
+                          ? `rotate(135deg) ${
+                              menuActive === 3
+                                ? 'translateX(-55px)'
+                                : 'translateX(-35px)'
+                            }`
                           : 'rotate(0deg) translateX(110px)',
                         transition: 'transform 1.25s ease',
                         color: '#1D38FF',
@@ -668,7 +751,7 @@ const Landing = () => {
                         e.target.style.borderRadius = '50%';
                         e.target.style.color = 'rgba(0, 0, 0, 0.5)';
                         e.target.style.boxShadow =
-                          '0 0 10px #1D38FF, 0 0 30px #1D38FF, 0 0 50px #1D38FF';
+                          '0 0 10px #1D38FF, 0 0 20px #1D38FF, 0 0 30px #1D38FF';
                       }}
                       onMouseOut={(e) => {
                         e.target.style.background = 'none';
@@ -676,22 +759,37 @@ const Landing = () => {
                         e.target.style.color = '#1D38FF';
                         e.target.style.boxShadow = '';
                       }}
+                      onClick={(e) => {
+                        setMenuScore(3);
+                        if (menuKey === 'C/C++') {
+                          setMenuKey(menuKeyDefault);
+                          setMenuValue(menuValueDefault);
+                          setMenuActive(-1);
+                        } else {
+                          setMenuKey('C/C++');
+                          setMenuValue(4);
+                          setMenuActive(3);
+                        }
+                      }}
                     >
-                      <a
-                        href="/"
+                      <div
                         style={{
                           transform: `rotate(-135deg)`,
                         }}
                       >
                         C/C++
-                      </a>
+                      </div>
                     </li>
                     <li
                       value={4}
                       clr={'#ff2972'}
                       style={{
                         transform: activeRotate
-                          ? `rotate(180deg) translateX(-35px)`
+                          ? `rotate(180deg) ${
+                              menuActive === 4
+                                ? 'translateX(-55px)'
+                                : 'translateX(-35px)'
+                            }`
                           : 'rotate(0deg) translateX(110px)',
                         transition: 'transform 1.25s ease',
                         color: '#00b0fe',
@@ -703,7 +801,7 @@ const Landing = () => {
                         e.target.style.borderRadius = '50%';
                         e.target.style.color = 'rgba(0, 0, 0, 0.5)';
                         e.target.style.boxShadow =
-                          '0 0 10px #00b0fe, 0 0 30px #00b0fe, 0 0 50px #00b0fe';
+                          '0 0 10px #00b0fe, 0 0 20px #00b0fe, 0 0 30px #00b0fe';
                       }}
                       onMouseOut={(e) => {
                         e.target.style.background = 'none';
@@ -711,22 +809,37 @@ const Landing = () => {
                         e.target.style.color = '#00b0fe';
                         e.target.style.boxShadow = '';
                       }}
+                      onClick={(e) => {
+                        setMenuScore(3);
+                        if (menuKey === 'R') {
+                          setMenuKey(menuKeyDefault);
+                          setMenuValue(menuValueDefault);
+                          setMenuActive(-1);
+                        } else {
+                          setMenuKey('R');
+                          setMenuValue(5);
+                          setMenuActive(4);
+                        }
+                      }}
                     >
-                      <a
-                        href="/"
+                      <div
                         style={{
                           transform: `rotate(-180deg)`,
                         }}
                       >
                         R
-                      </a>
+                      </div>
                     </li>
                     <li
                       value={5}
                       clr={'#ff2972'}
                       style={{
                         transform: activeRotate
-                          ? `rotate(225deg) translateX(-35px)`
+                          ? `rotate(225deg) ${
+                              menuActive === 5
+                                ? 'translateX(-55px)'
+                                : 'translateX(-35px)'
+                            }`
                           : 'rotate(0deg) translateX(110px)',
                         transition: 'transform 1.25s ease',
                         color: '#ff2972',
@@ -738,7 +851,7 @@ const Landing = () => {
                         e.target.style.borderRadius = '50%';
                         e.target.style.color = 'rgba(0, 0, 0, 0.5)';
                         e.target.style.boxShadow =
-                          '0 0 10px #ff2972, 0 0 30px #ff2972, 0 0 50px #ff2972';
+                          '0 0 10px #ff2972, 0 0 20px #ff2972, 0 0 30px #ff2972';
                       }}
                       onMouseOut={(e) => {
                         e.target.style.background = 'none';
@@ -746,22 +859,37 @@ const Landing = () => {
                         e.target.style.color = '#ff2972';
                         e.target.style.boxShadow = '';
                       }}
+                      onClick={(e) => {
+                        setMenuScore(1);
+                        if (menuKey === 'SQL') {
+                          setMenuKey(menuKeyDefault);
+                          setMenuValue(menuValueDefault);
+                          setMenuActive(-1);
+                        } else {
+                          setMenuKey('SQL');
+                          setMenuValue(6);
+                          setMenuActive(5);
+                        }
+                      }}
                     >
-                      <a
-                        href="/"
+                      <div
                         style={{
                           transform: `rotate(-225deg)`,
                         }}
                       >
                         SQL
-                      </a>
+                      </div>
                     </li>
                     <li
                       value={6}
                       clr={'#ff2972'}
                       style={{
                         transform: activeRotate
-                          ? `rotate(270deg) translateX(-35px)`
+                          ? `rotate(270deg) ${
+                              menuActive === 6
+                                ? 'translateX(-55px)'
+                                : 'translateX(-35px)'
+                            }`
                           : 'rotate(0deg) translateX(110px)',
                         transition: 'transform 1.25s ease',
                         color: '#FF539D',
@@ -773,7 +901,7 @@ const Landing = () => {
                         e.target.style.borderRadius = '50%';
                         e.target.style.color = 'rgba(0, 0, 0, 0.5)';
                         e.target.style.boxShadow =
-                          '0 0 10px #FF539D, 0 0 30px #FF539D, 0 0 50px #FF539D';
+                          '0 0 10px #FF539D, 0 0 20px #FF539D, 0 0 30px #FF539D';
                       }}
                       onMouseOut={(e) => {
                         e.target.style.background = 'none';
@@ -781,22 +909,37 @@ const Landing = () => {
                         e.target.style.color = '#FF539D';
                         e.target.style.boxShadow = '';
                       }}
+                      onClick={(e) => {
+                        setMenuScore(4);
+                        if (menuKey === 'HTML') {
+                          setMenuKey(menuKeyDefault);
+                          setMenuValue(menuValueDefault);
+                          setMenuActive(-1);
+                        } else {
+                          setMenuKey('HTML');
+                          setMenuValue(7);
+                          setMenuActive(6);
+                        }
+                      }}
                     >
-                      <a
-                        href="/"
+                      <div
                         style={{
                           transform: `rotate(-270deg)`,
                         }}
                       >
                         HTML
-                      </a>
+                      </div>
                     </li>
                     <li
                       value={7}
                       clr={'#ff2972'}
                       style={{
                         transform: activeRotate
-                          ? `rotate(315deg) translateX(-35px)`
+                          ? `rotate(315deg) ${
+                              menuActive === 7
+                                ? 'translateX(-55px)'
+                                : 'translateX(-35px)'
+                            }`
                           : 'rotate(0deg) translateX(110px)',
                         transition: 'transform 1.25s ease',
                         color: '#FF531D',
@@ -808,7 +951,7 @@ const Landing = () => {
                         e.target.style.borderRadius = '50%';
                         e.target.style.color = 'rgba(0, 0, 0, 0.5)';
                         e.target.style.boxShadow =
-                          '0 0 10px #FF531D, 0 0 30px #FF531D, 0 0 50px #FF531D';
+                          '0 0 10px #FF531D, 0 0 20px #FF531D, 0 0 30px #FF531D';
                       }}
                       onMouseOut={(e) => {
                         e.target.style.background = 'none';
@@ -816,15 +959,26 @@ const Landing = () => {
                         e.target.style.color = '#FF531D';
                         e.target.style.boxShadow = '';
                       }}
+                      onClick={(e) => {
+                        setMenuScore(4);
+                        if (menuKey === 'CSS') {
+                          setMenuKey(menuKeyDefault);
+                          setMenuValue(menuValueDefault);
+                          setMenuActive(-1);
+                        } else {
+                          setMenuKey('CSS');
+                          setMenuValue(8);
+                          setMenuActive(7);
+                        }
+                      }}
                     >
-                      <a
-                        href="/"
+                      <div
                         style={{
                           transform: `rotate(-315deg)`,
                         }}
                       >
                         CSS
-                      </a>
+                      </div>
                     </li>
                   </ul>
                 </Box>
@@ -837,21 +991,36 @@ const Landing = () => {
                 <Reveal>
                   <Box
                     sx={{
-                      typography: 'h6',
+                      typography: 'h3',
                       // fontSize: '3rem',
                       fontWeight: 'bold',
-                      marginTop: '4rem',
-                      marginBottom: '4rem',
+                      marginBottom: '2rem',
                       flex: '10',
                     }}
                   >
-                    I've spent the last -1 years building and scaling software
-                    for some
-                    <br />
-                    pretty cool companies. I'm also always willing to play some
-                    volleyball
-                    <br />
-                    and chess. Let's connect!
+                    {activeRotate ? menuKey : menuKeyDefault}
+                  </Box>
+                </Reveal>
+
+                {menuActive !== -1 && activeRotate ? (
+                  <StrengthMeter score={menuScore} />
+                ) : (
+                  <></>
+                )}
+
+                <Reveal>
+                  <Box
+                    sx={{
+                      typography: 'h6',
+                      // fontSize: '3rem',
+                      fontWeight: 'bold',
+                      marginTop:
+                        menuActive !== -1 && activeRotate ? '2rem' : '',
+                      flex: '10',
+                      paddingRight: '6rem',
+                    }}
+                  >
+                    {activeRotate ? menuValue : menuValueDefault}
                   </Box>
                 </Reveal>
               </Box>
@@ -1192,14 +1361,14 @@ const Landing = () => {
           </Reveal>
         </Box>
       </Box>
-      {/* <a
+      {/* <div
         href="/"
         style={{
           transform: `rotate(-0deg)`,
         }}
       >
         ^
-      </a> */}
+      </div> */}
     </Box>
   );
 };

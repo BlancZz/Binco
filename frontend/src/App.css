@@ -357,7 +357,7 @@ footer {
   transform: rotate(0deg) translateX(110px);
 }
 
-.menu li a {
+.menu li div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -385,24 +385,26 @@ footer {
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 90px;
-  height: 90px;
+  width: 125px;
+  height: 125px;
   border: 2px solid #fff;
   background-color: #282c34;
   border-radius: 50%;
   cursor: pointer;
   z-index: 5;
-  font-size: 2em;
+  font-size: 5rem;
+  text-align: center;
   transition: transform 1.25s;
 }
 
 .hexagon {
   height: 200px;
   width: 120px;
-  background: red;
+  background: #242c37;
   position: relative;
   left: 50px;
   box-sizing: border-box;
+  box-shadow: '3px 3px 1px 1px rgba(183, 243, 255, .5)';
 }
 .hexagon::before,
 .hexagon::after {
@@ -414,14 +416,33 @@ footer {
   /* half height */
   border-top: 100px solid transparent;
   border-bottom: 100px solid transparent;
+  box-shadow: '3px 3px 1px 1px rgba(183, 243, 255, .5)';
 }
+/* sx={{
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  cursor: 'pointer',
+  color: '#161b22',
+  height: '9rem',
+  width: '9rem',
+  borderRadius: '100%',
+  backgroundColor: '#242c37',
+  border: '1px solid #242c37',
+  boxShadow: '3px 3px 1px 1px rgba(183, 243, 255, .5)',
+  margin: '1rem',
+}} */
+
 .hexagon::before {
   left: -50px;
-  border-right: 50px solid red;
+  border-right: 50px solid #242c37;
+  box-shadow: '3px 3px 1px 1px rgba(183, 243, 255, .5)';
 }
 .hexagon::after {
   right: -50px;
-  border-left: 50px solid red;
+  border-left: 50px solid #242c37;
+  box-shadow: '3px 3px 1px 1px rgba(183, 243, 255, .5)';
 }
 
 Starfield {
