@@ -12,7 +12,6 @@ import ListItem from '@mui/material/ListItem';
 import Button from '@mui/material/Button';
 
 import DarkBackground from './assets/DarkBackground.png';
-
 import LightBackground from './assets/LightBackground.png';
 import { useTheme } from './ThemeContext';
 import CursorFollow from './components/cursor/CursorFollow';
@@ -826,7 +825,7 @@ const Landing = () => {
                         e.target.style.boxShadow = '';
                       }}
                       onClick={(e) => {
-                        setMenuScore(1);
+                        setMenuScore(2);
                         if (menuKey === 'SQL') {
                           setMenuKey(menuKeyDefault);
                           setMenuValue(menuValueDefault);
@@ -1243,6 +1242,161 @@ const Landing = () => {
           >
             <RevealUp>
               <div className="">
+                <div className="w-96 relative max-w-sm">
+                  {/* <div
+                    className="mb-10 mt-10 rounded-2xl  bg-[#313c4c] px-9 py-9 font-semibold 
+                      uppercase text-black transition-all duration-200 hover:translate-x-[-4px] 
+                      hover:translate-y-[-4px] shadow-[2px_2px_0px_#b7f3ff] hover:shadow-[4px_4px_0px_#b7f3ff] 
+                      active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+                  ></div> */}
+                  <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
+                  <div
+                    className="group relative shadow-xl bg-gray-900 border border-gray-800 underline hover:no-underline
+                        px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end underline-offset-8
+                        items-start hover:bg-[url('./assets/DarkBackground.png')] hover:bg-cover decoration-pink-200
+                        hover:bg-no-repeat bg-none transition-all flex justify-center items-center"
+                  >
+                    <div className="hidden group-hover:block h-10 w-10 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+                      <svg
+                        fill="#FFFFFF"
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <title>ionicons-v5-f</title>
+                          <path d="M256,48C141.13,48,48,141.13,48,256s93.13,208,208,208,208-93.13,208-208S370.87,48,256,48Zm70,280H193.05c-31.53,0-57.56-25.58-57-57.11.53-31.74,23.68-49.95,51.35-54.3a7.92,7.92,0,0,0,6.16-5C202.07,189.22,223.63,168,256,168c33.17,0,61.85,22.49,70.14,60.21a17.75,17.75,0,0,0,13.18,13.43C357.79,246.05,376,259.21,376,284,376,314.28,353.5,328,326,328Z"></path>
+                        </g>
+                      </svg>
+                    </div>
+
+                    <h1
+                      className="font-bold text-7xl text-white mb-4 relative z-50 
+                        group-hover:text-4xl"
+                    >
+                      Brisk
+                    </h1>
+
+                    <p className="hidden group-hover:block font-normal text-base text-white mb-4 pl-2 pr-2 relative z-50">
+                      Community posts frontend that takes user messages and
+                      drawings and displays them in a webhooked discord server.
+                    </p>
+
+                    <button
+                      className="hidden group-hover:block border px-4 py-1 rounded-lg border-gray-500 text-white
+                      bg-slate-500/75 hover:bg-slate-800/75"
+                    >
+                      Explore
+                    </button>
+
+                    {/* Meaty part - Meteor effect */}
+                    <Meteors number={20} />
+                  </div>
+                </div>
+              </div>
+            </RevealUp>
+            <RevealUp>
+              <div className="">
+                <div className=" w-full relative max-w-sm">
+                  <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
+                  <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end items-start">
+                    <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="h-2 w-2 text-gray-300"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+                        />
+                      </svg>
+                    </div>
+
+                    <h1 className="font-bold text-xl text-white mb-4 relative z-50">
+                      Meteors because they&apos;re cool
+                    </h1>
+
+                    <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
+                      I don&apos;t know what to write so I&apos;ll just paste
+                      something cool here. One more sentence because lorem ipsum
+                      is just unacceptable. Won&apos;t ChatGPT the shit out of
+                      this.
+                    </p>
+
+                    <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
+                      Explore
+                    </button>
+
+                    {/* Meaty part - Meteor effect */}
+                    <Meteors number={20} />
+                  </div>
+                </div>
+              </div>
+            </RevealUp>
+            <RevealUp>
+              <div className="">
+                <div className=" w-full relative max-w-sm">
+                  <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
+                  <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end items-start">
+                    <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="h-2 w-2 text-gray-300"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+                        />
+                      </svg>
+                    </div>
+
+                    <h1 className="font-bold text-xl text-white mb-4 relative z-50">
+                      Meteors because they&apos;re cool
+                    </h1>
+
+                    <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
+                      I don&apos;t know what to write so I&apos;ll just paste
+                      something cool here. One more sentence because lorem ipsum
+                      is just unacceptable. Won&apos;t ChatGPT the shit out of
+                      this.
+                    </p>
+
+                    <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
+                      Explore
+                    </button>
+
+                    {/* Meaty part - Meteor effect */}
+                    <Meteors number={20} />
+                  </div>
+                </div>
+              </div>
+            </RevealUp>
+          </Box>
+          <Box
+            sx={{
+              width: '80vw',
+              display: 'flex',
+              justifyContent: 'space-around',
+              margin: '1rem',
+            }}
+          >
+            <RevealUp>
+              <div className="">
                 <div className=" w-full relative max-w-sm">
                   <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
                   <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end items-start">
@@ -1371,6 +1525,7 @@ const Landing = () => {
               </div>
             </RevealUp>
           </Box>
+
           <Box>
             <RevealUp>
               <div className="">

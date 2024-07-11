@@ -23,6 +23,15 @@ module.exports = {
           },
         },
       },
+      backgroundImage: {
+        'bg-dark': "url('/src/assets/DarkBackground.png')",
+        'bg-light': "url('/src/assets/LightBackground.png')",
+      },
+    },
+  },
+  variants: {
+    extend: {
+      display: ['group-hover'],
     },
   },
 
