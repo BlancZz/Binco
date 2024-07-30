@@ -13,6 +13,7 @@ import Button from '@mui/material/Button';
 
 import DarkBackground from './assets/DarkBackground.png';
 import LightBackground from './assets/LightBackground.png';
+import Eduspace from './assets/Eduspace.png';
 import { useTheme } from './ThemeContext';
 import CursorFollow from './components/cursor/CursorFollow';
 
@@ -153,7 +154,7 @@ const Landing = () => {
       {activeStars ? (
         <Starfield
           starCount={1500}
-          starColor={mode === 'dark' ? [255, 255, 255] : [0, 0, 0]}
+          starColor={mode === 'dark' ? [255, 255, 255] : [255, 255, 255]}
           speedFactor={0.1}
           sx={
             {
@@ -998,7 +999,7 @@ const Landing = () => {
             backgroundColor: mode !== 'dark' ? '#faf0e6' : '#101318',
             width: '100%',
             height: '30vh',
-            display: 'flex',
+            display: 'none' /*'flex'*/,
             alignItems: 'center',
             flexDirection: 'column',
             padding: '5rem',
@@ -1034,139 +1035,6 @@ const Landing = () => {
             ></Box>
           </Reveal>
 
-          <Box
-            sx={{
-              width: '80vw',
-              display: 'flex',
-              justifyContent: 'space-between',
-              marginTop: '5rem',
-              display: 'none',
-            }}
-          >
-            <div className="">
-              <div className=" w-full relative max-w-xs">
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
-                <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
-                  <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="h-2 w-2 text-gray-300"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                      />
-                    </svg>
-                  </div>
-
-                  <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-                    Meteors because they&apos;re cool
-                  </h1>
-
-                  <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-                    I don&apos;t know what to write so I&apos;ll just paste
-                    something cool here. One more sentence because lorem ipsum
-                    is just unacceptable. Won&apos;t ChatGPT the shit out of
-                    this.
-                  </p>
-
-                  <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
-                    Explore
-                  </button>
-
-                  {/* Meaty part - Meteor effect */}
-                  <Meteors number={20} />
-                </div>
-              </div>
-            </div>
-            <div className="">
-              <div className=" w-full relative max-w-xs">
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
-                <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
-                  <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="h-2 w-2 text-gray-300"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                      />
-                    </svg>
-                  </div>
-
-                  <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-                    Meteors because they&apos;re cool
-                  </h1>
-
-                  <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-                    I don&apos;t know what to write so I&apos;ll just paste
-                    something cool here. One more sentence because lorem ipsum
-                    is just unacceptable. Won&apos;t ChatGPT the shit out of
-                    this.
-                  </p>
-
-                  <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
-                    Explore
-                  </button>
-
-                  {/* Meaty part - Meteor effect */}
-                  <Meteors number={20} />
-                </div>
-              </div>
-            </div>
-            <div className="">
-              <div className=" w-full relative max-w-xs">
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
-                <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
-                  <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="h-2 w-2 text-gray-300"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                      />
-                    </svg>
-                  </div>
-
-                  <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-                    Meteors because they&apos;re cool
-                  </h1>
-
-                  <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-                    I don&apos;t know what to write so I&apos;ll just paste
-                    something cool here. One more sentence because lorem ipsum
-                    is just unacceptable. Won&apos;t ChatGPT the shit out of
-                    this.
-                  </p>
-
-                  <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
-                    Explore
-                  </button>
-
-                  {/* Meaty part - Meteor effect */}
-                  <Meteors number={20} />
-                </div>
-              </div>
-            </div>
-          </Box>
           {/* <Swiper
             effect={'coverflow'}
             grabCursor={true}
@@ -1192,9 +1060,10 @@ const Landing = () => {
         </Box>
         <Box
           sx={{
-            backgroundColor: mode !== 'dark' ? '#faf0e6' : '#161b22',
+            backgroundColor: mode !== 'dark' ? '#faf0e6' : '#101318',
+            // backgroundColor: mode !== 'dark' ? '#faf0e6' : '#161b22',
             width: '100%',
-            height: '220vh',
+            height: '170vh',
             display: 'flex',
             // justifyContent: 'center',
             alignItems: 'center',
@@ -1216,7 +1085,7 @@ const Landing = () => {
                   color: mode === 'dark' ? '#b7f3ff' : '#eb78a9',
                 }}
               >
-                Other Projects
+                Projects
               </span>
             </Box>
           </Reveal>
@@ -1243,12 +1112,6 @@ const Landing = () => {
             <RevealUp>
               <div className="">
                 <div className="w-96 relative max-w-sm">
-                  {/* <div
-                    className="mb-10 mt-10 rounded-2xl  bg-[#313c4c] px-9 py-9 font-semibold 
-                      uppercase text-black transition-all duration-200 hover:translate-x-[-4px] 
-                      hover:translate-y-[-4px] shadow-[2px_2px_0px_#b7f3ff] hover:shadow-[4px_4px_0px_#b7f3ff] 
-                      active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
-                  ></div> */}
                   <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
                   <div
                     className="group relative shadow-xl bg-gray-900 border border-gray-800 underline hover:no-underline
@@ -1277,9 +1140,218 @@ const Landing = () => {
 
                     <h1
                       className="font-bold text-7xl text-white mb-4 relative z-50 
-                        group-hover:text-4xl"
+                        group-hover:text-4xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
                     >
                       Brisk
+                    </h1>
+
+                    <p
+                      className="hidden group-hover:block font-normal text-base text-white mb-4 pl-2 pr-2 relative z-50
+                      drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
+                    >
+                      Community posts frontend that takes user messages and
+                      drawings and displays them in a webhooked discord server.
+                    </p>
+
+                    <button
+                      className="hidden group-hover:block border px-4 py-1 rounded-lg border-gray-500 text-white
+                      bg-slate-500/75 hover:bg-slate-800/75"
+                    >
+                      Explore
+                    </button>
+
+                    {/* Meaty part - Meteor effect */}
+                    <Meteors number={20} />
+                  </div>
+                </div>
+              </div>
+            </RevealUp>
+            <RevealUp>
+              <div className="">
+                <div className="w-96 relative max-w-sm">
+                  <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
+                  <div
+                    className="group relative shadow-xl bg-gray-900 border border-gray-800 underline hover:no-underline
+                        px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end underline-offset-8
+                        items-start hover:bg-[url('./assets/e.png')] hover:bg-cover decoration-blue-200
+                        hover:bg-no-repeat bg-none transition-all flex justify-center items-center"
+                  >
+                    <div className="hidden group-hover:block p-1 h-10 w-10 rounded-full border flex items-center justify-center mb-4 border-black">
+                      <svg
+                        viewBox="-2.4 -2.4 28.80 28.80"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        stroke="#000000"
+                        stroke-width="0.00024000000000000003"
+                      >
+                        <g
+                          id="SVGRepo_bgCarrier"
+                          stroke-width="0"
+                          transform="translate(0,0), scale(1)"
+                        >
+                          <rect
+                            x="-2.4"
+                            y="-2.4"
+                            width="28.80"
+                            height="28.80"
+                            rx="14.4"
+                            fill="#000000"
+                            strokewidth="0"
+                          ></rect>
+                        </g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke="#ffffff"
+                          stroke-width="0.048"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          {' '}
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M15.75 5.99996V10.5817L20.25 15.4567V19.5L14.85 17.25H14.164C14.2486 17.7211 14.3143 18.3821 14.142 18.9632C13.9659 19.5569 13.4881 20.2215 13.1356 20.6687C12.9464 20.9088 12.7667 21.1187 12.6346 21.2684C12.5683 21.3434 12.5134 21.404 12.4746 21.4463C12.4552 21.4674 12.4398 21.484 12.429 21.4957L12.4162 21.5094L12.4125 21.5133L12.4113 21.5145L12.4108 21.5151L11.8348 22.1242L11.2932 21.4844L11.2915 21.4825L11.2881 21.4784L11.2764 21.4644C11.2665 21.4525 11.2525 21.4357 11.235 21.4143C11.2 21.3715 11.1507 21.3104 11.0913 21.2347C10.9731 21.0839 10.8128 20.8723 10.6459 20.6301C10.3367 20.1815 9.91547 19.504 9.79514 18.8955C9.68449 18.3359 9.79889 17.7103 9.92202 17.25H9.15L3.75 19.5V15.4567L8.25 10.5817V5.99996C8.25 5.35551 8.54034 4.80104 8.87841 4.36963C9.21911 3.93484 9.65484 3.56455 10.0602 3.2711C10.4698 2.97466 10.8748 2.73774 11.175 2.57572C11.326 2.49424 11.4525 2.43056 11.5426 2.38666C11.5877 2.36469 11.6238 2.34761 11.6494 2.33567L11.6799 2.32162L11.6889 2.31754L11.6917 2.31624L11.6935 2.31543L12 2.17822L12.3072 2.31577L12.3083 2.31624L12.3111 2.31754L12.3201 2.32162L12.3506 2.33567C12.3762 2.34761 12.4123 2.36469 12.4574 2.38666C12.5475 2.43056 12.674 2.49424 12.825 2.57572C13.1252 2.73774 13.5302 2.97466 13.9398 3.2711C14.3452 3.56455 14.7809 3.93484 15.1216 4.36963C15.4597 4.80104 15.75 5.35551 15.75 5.99996ZM11.4896 17.25C11.4625 17.3292 11.4346 17.4157 11.4078 17.5068C11.2792 17.9448 11.2175 18.3559 11.2666 18.6045C11.3201 18.8746 11.5662 19.3221 11.881 19.7789L11.9023 19.8097C11.9206 19.7869 11.939 19.7637 11.9575 19.7402C12.3185 19.2821 12.6193 18.8218 12.7039 18.5367C12.7799 18.2806 12.7573 17.8699 12.6733 17.4389C12.6605 17.3731 12.6468 17.3098 12.633 17.25H11.4896ZM15.75 16V12.7932L18.75 16.0432V17.25L15.75 16ZM14.25 5.99996V15.75H9.75V5.99996C9.75 5.81598 9.83466 5.58123 10.0591 5.29482C10.2809 5.01178 10.5952 4.73562 10.9398 4.48618C11.2802 4.23973 11.6252 4.0373 11.8875 3.89571C11.9272 3.87428 11.9648 3.85435 12 3.83598C12.0352 3.85435 12.0728 3.87428 12.1125 3.89571C12.3748 4.0373 12.7198 4.23973 13.0602 4.48618C13.4048 4.73562 13.7191 5.01178 13.9409 5.29482C14.1653 5.58123 14.25 5.81598 14.25 5.99996ZM8.25 12.7932V16L5.25 17.25V16.0432L8.25 12.7932Z"
+                            fill="#ffffff"
+                          ></path>{' '}
+                        </g>
+                      </svg>
+                    </div>
+
+                    <h1
+                      className="font-bold text-7xl text-white mb-2 relative z-50 
+                        group-hover:hidden"
+                    >
+                      Eduspace
+                    </h1>
+
+                    <h1
+                      className="hidden group-hover:block font-bold text-black mb-4 relative z-50 
+                        text-4xl drop-shadow-[0_1.2px_1.2px_rgba(225,225,225,0.8)]"
+                    >
+                      Eduspace
+                    </h1>
+
+                    <p
+                      className="hidden group-hover:block font-normal text-base text-black mb-4 pl-2 pr-2 relative z-50
+                      drop-shadow-[0_1.2px_1.2px_rgba(225,225,225,1)]"
+                    >
+                      Community posts frontend that takes user messages and
+                      drawings and displays them in a webhooked discord server.
+                    </p>
+
+                    <button
+                      className="hidden group-hover:block border px-4 py-1 rounded-lg border-gray-500 text-white
+                      bg-slate-500/75 hover:bg-slate-800/75"
+                    >
+                      Explore
+                    </button>
+
+                    {/* Meaty part - Meteor effect */}
+                    <Meteors number={20} />
+                  </div>
+                </div>
+              </div>
+            </RevealUp>
+            <RevealUp>
+              <div className="">
+                <div className="w-96 relative max-w-sm">
+                  <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
+                  <div
+                    className="group relative shadow-xl bg-gray-900 border border-gray-800 underline hover:no-underline
+                        px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end underline-offset-8
+                        items-start hover:bg-[url('./assets/m.png')] hover:bg-cover decoration-red-200
+                        hover:bg-no-repeat bg-none transition-all flex justify-center items-center"
+                  >
+                    <div className="hidden group-hover:block h-10 w-10 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+                      <svg
+                        fill="#FFFFFF"
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <title>ionicons-v5-f</title>
+                          <path d="M256,48C141.31,48,48,141.31,48,256s93.31,208,208,208,208-93.31,208-208S370.69,48,256,48Zm74.69,252.82c-9.38,11.44-26.4,29.73-65.7,56.41a15.93,15.93,0,0,1-18,0c-39.3-26.68-56.32-45-65.7-56.41-20-24.37-29.58-49.4-29.3-76.5.31-31.06,25.22-56.33,55.53-56.33,20.4,0,35,10.63,44.1,20.41a6,6,0,0,0,8.72,0c9.11-9.78,23.7-20.41,44.1-20.41,30.31,0,55.22,25.27,55.53,56.33C360.27,251.42,350.68,276.45,330.69,300.82Z"></path>
+                        </g>
+                      </svg>
+                    </div>
+
+                    <h1
+                      className="font-bold text-7xl text-white mb-4 relative z-50 
+                        group-hover:text-4xl text-center"
+                    >
+                      Love Letters
+                    </h1>
+
+                    <p className="hidden group-hover:block font-normal text-base text-white mb-4 pl-2 pr-2 relative z-50">
+                      Community posts frontend that takes user messages and
+                      drawings and displays them in a webhooked discord server.
+                    </p>
+
+                    <button
+                      className="hidden group-hover:block border px-4 py-1 rounded-lg border-gray-500 text-white
+                      bg-slate-500/75 hover:bg-slate-800/75"
+                    >
+                      Explore
+                    </button>
+
+                    {/* Meaty part - Meteor effect */}
+                    <Meteors number={20} />
+                  </div>
+                </div>
+              </div>
+            </RevealUp>
+          </Box>
+          <Box
+            sx={{
+              width: '80vw',
+              display: 'flex',
+              justifyContent: 'space-around',
+              margin: '1rem',
+            }}
+          >
+            <RevealUp>
+              <div className="">
+                <div className="w-96 relative max-w-sm">
+                  <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
+                  <div
+                    className="group relative shadow-xl bg-gray-900 border border-gray-800 underline hover:no-underline
+                        px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end underline-offset-8
+                        items-start hover:bg-[url('./assets/DarkBackground.png')] hover:bg-cover decoration-lime-200
+                        hover:bg-no-repeat bg-none transition-all flex justify-center items-center"
+                  >
+                    <div className="hidden group-hover:block p-1 h-10 w-10 rounded-full border-2 flex items-center justify-center mb-4 border-[#90c0fe]">
+                      <svg
+                        viewBox="0 0 1024 1024"
+                        fill="#90c0fe"
+                        class="icon"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        stroke="#90c0fe"
+                      >
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path d="M512 201.076364c33.978182 55.156364 69.818182 105.658182 103.563636 152.901818C700.741818 473.6 768 568.087273 768 674.909091c0 116.363636-114.269091 256-256 256S256 791.272727 256 674.909091c0-106.821818 67.258182-201.309091 152.436364-320.930909 33.512727-46.545455 69.818182-97.745455 103.563636-152.901818M512 0C395.636364 279.272727 162.909091 442.181818 162.909091 674.909091c0 170.589091 160.581818 349.090909 349.090909 349.090909s349.090909-178.501818 349.090909-349.090909c0-232.727273-232.727273-395.636364-349.090909-674.909091zM575.534545 744.727273a116.363636 116.363636 0 0 1-80.058181-31.650909L465.454545 683.52a23.272727 23.272727 0 0 0-31.883636 0l-28.16 26.763636a46.545455 46.545455 0 1 1-64.232727-67.490909l28.16-26.763636a116.363636 116.363636 0 0 1 160.116363 0L558.545455 645.585455a23.272727 23.272727 0 0 0 31.883636 0l28.16-26.763637a46.545455 46.545455 0 1 1 64.232727 67.490909l-28.16 26.763637a116.363636 116.363636 0 0 1-79.127273 31.650909z"></path>
+                        </g>
+                      </svg>
+                    </div>
+
+                    <h1
+                      className="font-bold text-7xl text-white mb-4 relative z-50 
+                        group-hover:text-4xl text-center"
+                    >
+                      Waste Watch
                     </h1>
 
                     <p className="hidden group-hover:block font-normal text-base text-white mb-4 pl-2 pr-2 relative z-50">
@@ -1302,38 +1374,49 @@ const Landing = () => {
             </RevealUp>
             <RevealUp>
               <div className="">
-                <div className=" w-full relative max-w-sm">
+                <div className="w-96 relative max-w-sm">
                   <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
-                  <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end items-start">
-                    <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+                  <div
+                    className="group relative shadow-xl bg-gray-900 border border-gray-800 underline hover:no-underline
+                        px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end underline-offset-8
+                        items-start hover:bg-[url('./assets/DarkBackground.png')] hover:bg-cover decoration-purple-200
+                        hover:bg-no-repeat bg-none transition-all flex justify-center items-center"
+                  >
+                    <div className="hidden group-hover:block h-10 w-10 rounded-full border flex items-center justify-center mb-4 border-gray-500">
                       <svg
+                        fill="#FFFFFF"
+                        viewBox="0 0 512 512"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="h-2 w-2 text-gray-300"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                        />
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <title>ionicons-v5-f</title>
+                          <path d="M256,48C141.13,48,48,141.13,48,256s93.13,208,208,208,208-93.13,208-208S370.87,48,256,48Zm70,280H193.05c-31.53,0-57.56-25.58-57-57.11.53-31.74,23.68-49.95,51.35-54.3a7.92,7.92,0,0,0,6.16-5C202.07,189.22,223.63,168,256,168c33.17,0,61.85,22.49,70.14,60.21a17.75,17.75,0,0,0,13.18,13.43C357.79,246.05,376,259.21,376,284,376,314.28,353.5,328,326,328Z"></path>
+                        </g>
                       </svg>
                     </div>
 
-                    <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-                      Meteors because they&apos;re cool
+                    <h1
+                      className="font-bold text-7xl text-white mb-4 relative z-50 
+                        group-hover:text-4xl"
+                    >
+                      Hoyosoc
                     </h1>
 
-                    <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-                      I don&apos;t know what to write so I&apos;ll just paste
-                      something cool here. One more sentence because lorem ipsum
-                      is just unacceptable. Won&apos;t ChatGPT the shit out of
-                      this.
+                    <p className="hidden group-hover:block font-normal text-base text-white mb-4 pl-2 pr-2 relative z-50">
+                      Community posts frontend that takes user messages and
+                      drawings and displays them in a webhooked discord server.
                     </p>
 
-                    <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
+                    <button
+                      className="hidden group-hover:block border px-4 py-1 rounded-lg border-gray-500 text-white
+                      bg-slate-500/75 hover:bg-slate-800/75"
+                    >
                       Explore
                     </button>
 
@@ -1345,38 +1428,49 @@ const Landing = () => {
             </RevealUp>
             <RevealUp>
               <div className="">
-                <div className=" w-full relative max-w-sm">
+                <div className="w-96 relative max-w-sm">
                   <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
-                  <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end items-start">
-                    <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+                  <div
+                    className="group relative shadow-xl bg-gray-900 border border-gray-800 underline hover:no-underline
+                        px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end underline-offset-8
+                        items-start hover:bg-[url('./assets/DarkBackground.png')] hover:bg-cover decoration-amber-200
+                        hover:bg-no-repeat bg-none transition-all flex justify-center items-center"
+                  >
+                    <div className="hidden group-hover:block h-10 w-10 rounded-full border flex items-center justify-center mb-4 border-gray-500">
                       <svg
+                        fill="#FFFFFF"
+                        viewBox="0 0 512 512"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="h-2 w-2 text-gray-300"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                        />
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <title>ionicons-v5-f</title>
+                          <path d="M256,48C141.13,48,48,141.13,48,256s93.13,208,208,208,208-93.13,208-208S370.87,48,256,48Zm70,280H193.05c-31.53,0-57.56-25.58-57-57.11.53-31.74,23.68-49.95,51.35-54.3a7.92,7.92,0,0,0,6.16-5C202.07,189.22,223.63,168,256,168c33.17,0,61.85,22.49,70.14,60.21a17.75,17.75,0,0,0,13.18,13.43C357.79,246.05,376,259.21,376,284,376,314.28,353.5,328,326,328Z"></path>
+                        </g>
                       </svg>
                     </div>
 
-                    <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-                      Meteors because they&apos;re cool
+                    <h1
+                      className="font-bold text-7xl text-white mb-4 relative z-50 
+                        group-hover:text-4xl text-center"
+                    >
+                      Dungeon mania
                     </h1>
 
-                    <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-                      I don&apos;t know what to write so I&apos;ll just paste
-                      something cool here. One more sentence because lorem ipsum
-                      is just unacceptable. Won&apos;t ChatGPT the shit out of
-                      this.
+                    <p className="hidden group-hover:block font-normal text-base text-white mb-4 pl-2 pr-2 relative z-50">
+                      Community posts frontend that takes user messages and
+                      drawings and displays them in a webhooked discord server.
                     </p>
 
-                    <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
+                    <button
+                      className="hidden group-hover:block border px-4 py-1 rounded-lg border-gray-500 text-white
+                      bg-slate-500/75 hover:bg-slate-800/75"
+                    >
                       Explore
                     </button>
 
@@ -1391,44 +1485,55 @@ const Landing = () => {
             sx={{
               width: '80vw',
               display: 'flex',
-              justifyContent: 'space-around',
+              justifyContent: 'center',
               margin: '1rem',
             }}
           >
             <RevealUp>
               <div className="">
-                <div className=" w-full relative max-w-sm">
-                  <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
-                  <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end items-start">
-                    <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+                <div className="w-96 relative max-w-sm mr-5">
+                  {/* <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" /> */}
+                  <div
+                    className="group relative shadow-xl bg-gray-900 border border-gray-800 underline hover:no-underline
+                        px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end underline-offset-8
+                        items-start hover:bg-[url('./assets/DarkBackground.png')] hover:bg-cover decoration-cyan-200
+                        hover:bg-no-repeat bg-none transition-all flex justify-center items-center"
+                  >
+                    <div className="hidden group-hover:block h-10 w-10 rounded-full border flex items-center justify-center mb-4 border-gray-500">
                       <svg
+                        fill="#FFFFFF"
+                        viewBox="0 0 512 512"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="h-2 w-2 text-gray-300"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                        />
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <title>ionicons-v5-f</title>
+                          <path d="M256,48C141.13,48,48,141.13,48,256s93.13,208,208,208,208-93.13,208-208S370.87,48,256,48Zm70,280H193.05c-31.53,0-57.56-25.58-57-57.11.53-31.74,23.68-49.95,51.35-54.3a7.92,7.92,0,0,0,6.16-5C202.07,189.22,223.63,168,256,168c33.17,0,61.85,22.49,70.14,60.21a17.75,17.75,0,0,0,13.18,13.43C357.79,246.05,376,259.21,376,284,376,314.28,353.5,328,326,328Z"></path>
+                        </g>
                       </svg>
                     </div>
 
-                    <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-                      Meteors because they&apos;re cool
+                    <h1
+                      className="font-bold text-7xl text-white mb-4 relative z-50 
+                        group-hover:text-4xl text-center"
+                    >
+                      imi
                     </h1>
 
-                    <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-                      I don&apos;t know what to write so I&apos;ll just paste
-                      something cool here. One more sentence because lorem ipsum
-                      is just unacceptable. Won&apos;t ChatGPT the shit out of
-                      this.
+                    <p className="hidden group-hover:block font-normal text-base text-white mb-4 pl-2 pr-2 relative z-50">
+                      Community posts frontend that takes user messages and
+                      drawings and displays them in a webhooked discord server.
                     </p>
 
-                    <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
+                    <button
+                      className="hidden group-hover:block border px-4 py-1 rounded-lg border-gray-500 text-white
+                      bg-slate-500/75 hover:bg-slate-800/75"
+                    >
                       Explore
                     </button>
 
@@ -1440,127 +1545,49 @@ const Landing = () => {
             </RevealUp>
             <RevealUp>
               <div className="">
-                <div className=" w-full relative max-w-sm">
+                <div className="w-96 relative max-w-sm">
                   <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
-                  <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end items-start">
-                    <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+                  <div
+                    className="group relative shadow-xl bg-gray-900 border border-gray-800 underline hover:no-underline
+                        px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end underline-offset-8
+                        items-start hover:bg-[url('./assets/DarkBackground.png')] hover:bg-cover decoration-emerald-200
+                        hover:bg-no-repeat bg-none transition-all flex justify-center items-center"
+                  >
+                    <div className="hidden group-hover:block h-10 w-10 rounded-full border flex items-center justify-center mb-4 border-gray-500">
                       <svg
+                        fill="#FFFFFF"
+                        viewBox="0 0 512 512"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="h-2 w-2 text-gray-300"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                        />
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <title>ionicons-v5-f</title>
+                          <path d="M256,48C141.13,48,48,141.13,48,256s93.13,208,208,208,208-93.13,208-208S370.87,48,256,48Zm70,280H193.05c-31.53,0-57.56-25.58-57-57.11.53-31.74,23.68-49.95,51.35-54.3a7.92,7.92,0,0,0,6.16-5C202.07,189.22,223.63,168,256,168c33.17,0,61.85,22.49,70.14,60.21a17.75,17.75,0,0,0,13.18,13.43C357.79,246.05,376,259.21,376,284,376,314.28,353.5,328,326,328Z"></path>
+                        </g>
                       </svg>
                     </div>
 
-                    <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-                      Meteors because they&apos;re cool
+                    <h1
+                      className="font-bold text-7xl text-white mb-4 relative z-50 
+                        group-hover:text-4xl"
+                    >
+                      Airbnb
                     </h1>
 
-                    <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-                      I don&apos;t know what to write so I&apos;ll just paste
-                      something cool here. One more sentence because lorem ipsum
-                      is just unacceptable. Won&apos;t ChatGPT the shit out of
-                      this.
+                    <p className="hidden group-hover:block font-normal text-base text-white mb-4 pl-2 pr-2 relative z-50">
+                      Community posts frontend that takes user messages and
+                      drawings and displays them in a webhooked discord server.
                     </p>
 
-                    <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
-                      Explore
-                    </button>
-
-                    {/* Meaty part - Meteor effect */}
-                    <Meteors number={20} />
-                  </div>
-                </div>
-              </div>
-            </RevealUp>
-            <RevealUp>
-              <div className="">
-                <div className=" w-full relative max-w-sm">
-                  <div className="absolute inset-0 h-80 w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-none blur-3xl" />
-                  <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-80 overflow-hidden rounded-sm flex flex-col justify-end items-start">
-                    <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="h-2 w-2 text-gray-300"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                        />
-                      </svg>
-                    </div>
-
-                    <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-                      Meteors because they&apos;re cool
-                    </h1>
-
-                    <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-                      I don&apos;t know what to write so I&apos;ll just paste
-                      something cool here. One more sentence because lorem ipsum
-                      is just unacceptable. Won&apos;t ChatGPT the shit out of
-                      this.
-                    </p>
-
-                    <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
-                      Explore
-                    </button>
-
-                    {/* Meaty part - Meteor effect */}
-                    <Meteors number={20} />
-                  </div>
-                </div>
-              </div>
-            </RevealUp>
-          </Box>
-
-          <Box>
-            <RevealUp>
-              <div className="">
-                <div className=" w-full relative max-w-xs">
-                  <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
-                  <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
-                    <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="h-2 w-2 text-gray-300"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                        />
-                      </svg>
-                    </div>
-
-                    <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-                      Meteors because they&apos;re cool
-                    </h1>
-
-                    <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-                      I don&apos;t know what to write so I&apos;ll just paste
-                      something cool here. One more sentence because lorem ipsum
-                      is just unacceptable. Won&apos;t ChatGPT the shit out of
-                      this.
-                    </p>
-
-                    <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
+                    <button
+                      className="hidden group-hover:block border px-4 py-1 rounded-lg border-gray-500 text-white
+                      bg-slate-500/75 hover:bg-slate-800/75"
+                    >
                       Explore
                     </button>
 
@@ -1574,7 +1601,7 @@ const Landing = () => {
         </Box>
         <Box
           sx={{
-            backgroundColor: '#101318',
+            backgroundColor: '#0a0c10',
             width: '100%',
             height: '100vh',
             display: 'flex',
@@ -1617,14 +1644,6 @@ const Landing = () => {
           </Reveal>
         </Box>
       </Box>
-      {/* <div
-        href="/"
-        style={{
-          transform: `rotate(-0deg)`,
-        }}
-      >
-        ^
-      </div> */}
     </Box>
   );
 };
