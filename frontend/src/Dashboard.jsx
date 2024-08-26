@@ -1,9 +1,3 @@
-// import React from 'react';
-// import DiscordService from './services/DiscordService';
-// import useForm from "./hook/useForm";
-// import NavBar from './NavBar';
-// let username = "Stephen";
-import Bees from './Bees.png';
 import { useNavigate } from 'react-router-dom';
 import BrowserBackground from './BrowserBackground.svg';
 import BrowserWindow from './components/BrowserWindow';
@@ -14,17 +8,6 @@ function Dashboard() {
 
   return (
     <div className="w-full h-full d-flex flex-column  align-items-center">
-      {/* <div
-      style={{
-        // top: '10%',
-        width: '100%',
-        height: '100%',
-        backgroundImage: `url(${Bees})`,
-        backgroundSize: 'contain',
-        backgroundRepeat: 'no-repeat',
-        position: 'absolute',
-      }}
-    > */}
       <h1 style={{ textAlign: 'center' }}>Dashboard</h1>
       <BrowserWindow>
         <div
