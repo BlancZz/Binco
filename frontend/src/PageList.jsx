@@ -49,9 +49,9 @@ const PageList = () => {
       </Routes>
       <footer
         className="position-fixed w-100 text-center p-3 b-0"
-        style={{ color: mode === 'dark' ? '#faf0e6' : '#0D0D0D' }}
+        style={{ color: /*mode === 'dark' ? '#faf0e6' :*/ '#0D0D0D' }}
       >
-        &copy; 2024 Cool Website. All rights reserved.
+        &copy; PopQuote website. All rights reserved.
       </footer>
       {/* </div> */}
     </>

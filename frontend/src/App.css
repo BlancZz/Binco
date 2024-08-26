@@ -75,7 +75,7 @@ title {
   top: 50%;
   transform: translate(-50%, -50%);
   display: block;
-  color: rgb(123, 187, 255);
+  color: rgb(154, 172, 255);
   /* color: #cf1b1b; */
   /* font-size: 124px; */
   letter-spacing: 8px;
@@ -91,8 +91,8 @@ title::before {
     45deg,
     transparent 0,
     transparent 2px,
-    rgb(255, 99, 99) 2px,
-    rgb(255, 99, 99) 4px
+    rgb(255, 163, 163) 2px,
+    rgb(255, 163, 163) 4px
   );
   -webkit-background-clip: text;
   top: 0px;
@@ -109,8 +109,8 @@ title::after {
     135deg,
     transparent 0,
     transparent 2px,
-    rgb(255, 99, 99) 2px,
-    rgb(255, 99, 99) 4px
+    rgb(255, 163, 163) 2px,
+    rgb(255, 163, 163) 4px
   );
   -webkit-background-clip: text;
   top: 0px;
@@ -132,7 +132,7 @@ body {
   /* padding: 0;
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: rgb(255, 99, 99);
+  background: rgb(255, 163, 163);
   height: 100vh;
   width: 100vw; */
 
@@ -163,18 +163,22 @@ body {
   }
 }
 
+.popcat {
+  z-index: 50;
+}
+
 .wave {
   background: rgb(255 255 255 / 25%);
   border-radius: 1000% 1000% 0 0;
   position: fixed;
   width: 200%;
-  height: 2em;
+  height: 18em;
   animation: wave 10s -3s linear infinite;
   transform: translate3d(0, 0, 0);
   opacity: 0.8;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: 0;
 }
 
 .wave:nth-of-type(2) {

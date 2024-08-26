@@ -19,7 +19,7 @@ const Modal = () => {
     <div /* className="px-4 py-64 bg-slate-900 grid place-content-center"*/>
       <button
         onClick={() => setIsOpen(true)}
-        className="bg-gradient-to-r from-red-300 to-violet-600 text-white font-medium px-4 py-2 rounded hover:opacity-90 transition-opacity"
+        className="bg-gradient-to-r from-blue-400 to-indigo-500 text-white font-medium px-4 py-2 rounded hover:opacity-90 transition-opacity"
       >
         Add Quote :3
       </button>

@@ -75,9 +75,6 @@ function Dashboard() {
           {/* </div> */}
         </div>
       </BrowserWindow>
-      {/* <footer className="position-fixed w-100 text-center p-3 b-0">
-        &copy; 2024 Cool Website. All rights reserved.
-      </footer> */}
     </div>
   );
 }

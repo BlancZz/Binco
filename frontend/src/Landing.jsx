@@ -1,7 +1,5 @@
 'use client';
 import React from 'react';
-// import DiscordService from './services/DiscordService';
-// import useForm from "./hook/useForm";
 import NavBar from './NavBar';
 // import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -32,6 +30,7 @@ const Landing = () => {
     //   new Audio(popAudio2).play();
     // }
     // popVariation = !popVariation;
+    setNumClicks(numClicks + 1);
   }
 
   const [quotes, setQuotes] = React.useState([]);
@@ -70,6 +69,7 @@ const Landing = () => {
     setSeen(seen);
     setQuote(quotes[newInt]);
     setCurrentPointer(seen.length - 1);
+    setNumQuotes(numQuotes + 1);
 
     console.log(newInt + ': ' + quote);
   }
@@ -100,11 +100,14 @@ const Landing = () => {
     }
   }
 
+  const [numClicks, setNumClicks] = React.useState(0);
+  const [numQuotes, setNumQuotes] = React.useState(0);
+
   return (
     <body>
       <div class="wave"></div>
       <div class="wave"></div>
-      <div class="wave"></div>
+      {/* <div class="wave"></div> */}
       <Box
         sx={{
           // backgroundColor: '#fff9c4',
@@ -134,13 +137,28 @@ const Landing = () => {
             left: '20%',
             margin: '2rem',
             opacity: '20%',
-            color: '#448Aff',
+            // color: '#448Aff',
             '&:hover': {
               opacity: '50%',
             },
           }}
         >
           ( hover title )
+        </Box>
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            margin: '2rem',
+            fontSize: '1.5rem',
+            opacity: '70%',
+          }}
+        >
+          <Box>
+            <Box>Clicks: {' ' + numClicks}</Box>
+            <Box>Quotes: {' ' + numQuotes}</Box>
+          </Box>
         </Box>
         <Box
           sx={{
@@ -179,7 +197,7 @@ const Landing = () => {
               setSeenAll(false);
               setCurrentPointer(-1);
             }}
-            className="bg-gradient-to-r from-blue-300 to-indigo-600 text-white font-medium px-4 py-2 rounded hover:opacity-90 transition-opacity"
+            className="bg-gradient-to-r from-violet-500 to-red-400 text-white font-medium px-4 py-2 rounded hover:opacity-90 transition-opacity"
           >
             Reset :T
           </button>
@@ -205,6 +223,7 @@ const Landing = () => {
             end debugging
           </Button> */}
           <img
+            class="popcat"
             src={
               mouseDown
                 ? require('./assets/cat.png')
