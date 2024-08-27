@@ -196,8 +196,9 @@ const Landing = () => {
               setSeen([]);
               setSeenAll(false);
               setCurrentPointer(-1);
+              setNumQuotes(0);
             }}
-            className="bg-gradient-to-r from-violet-500 to-red-400 text-white font-medium px-4 py-2 rounded hover:opacity-90 transition-opacity"
+            className="bg-gradient-to-r from-violet-500 to-red-400 text-white font-medium px-4 py-2 rounded opacity-80 hover:opacity-100 transition-opacity"
           >
             Reset :T
           </button>
@@ -318,3 +319,21 @@ const Landing = () => {
 };
 
 export default Landing;
+
+// import './App.css';
+// import { React } from 'react';
+// import { BrowserRouter as Router } from 'react-router-dom';
+// import PageList from './PageList';
+// import { ThemeContext } from './ThemeContext';
+
+// function App() {
+//   return (
+//     <ThemeContext>
+//       <Router>
+//         <PageList />
+//       </Router>
+//     </ThemeContext>
+//   );
+// }
+
+// export default App;
