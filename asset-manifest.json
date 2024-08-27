@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PopQuote/static/css/main.998da132.css",
-    "main.js": "/PopQuote/static/js/main.36f23b15.js",
+    "main.css": "/PopQuote/static/css/main.85fc96ba.css",
+    "main.js": "/PopQuote/static/js/main.d7d28338.js",
     "static/js/496.eb2b6583.chunk.js": "/PopQuote/static/js/496.eb2b6583.chunk.js",
     "static/media/DarkBackground.png": "/PopQuote/static/media/DarkBackground.41df42db73253353e009.png",
     "static/media/LightBackground.png": "/PopQuote/static/media/LightBackground.32ded752719a282d39ca.png",
@@ -41,12 +41,12 @@
     "static/media/quotes.txt": "/PopQuote/static/media/quotes.041dabf8bef55a9fd6be.txt",
     "static/media/BrowserBackground.svg": "/PopQuote/static/media/BrowserBackground.a31246a30f6eb063d59f050a21d48914.svg",
     "index.html": "/PopQuote/index.html",
-    "main.998da132.css.map": "/PopQuote/static/css/main.998da132.css.map",
-    "main.36f23b15.js.map": "/PopQuote/static/js/main.36f23b15.js.map",
+    "main.85fc96ba.css.map": "/PopQuote/static/css/main.85fc96ba.css.map",
+    "main.d7d28338.js.map": "/PopQuote/static/js/main.d7d28338.js.map",
     "496.eb2b6583.chunk.js.map": "/PopQuote/static/js/496.eb2b6583.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.998da132.css",
-    "static/js/main.36f23b15.js"
+    "static/css/main.85fc96ba.css",
+    "static/js/main.d7d28338.js"
   ]
 }
