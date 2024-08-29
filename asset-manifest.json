@@ -1,12 +1,14 @@
 {
   "files": {
-    "main.css": "/PopQuote/static/css/main.85fc96ba.css",
-    "main.js": "/PopQuote/static/js/main.d7d28338.js",
+    "main.css": "/PopQuote/static/css/main.a546941a.css",
+    "main.js": "/PopQuote/static/js/main.43a7a330.js",
     "static/js/496.eb2b6583.chunk.js": "/PopQuote/static/js/496.eb2b6583.chunk.js",
     "static/media/DarkBackground.png": "/PopQuote/static/media/DarkBackground.41df42db73253353e009.png",
     "static/media/LightBackground.png": "/PopQuote/static/media/LightBackground.32ded752719a282d39ca.png",
     "static/media/cat.png": "/PopQuote/static/media/cat.b80a457e659bdd29c109.png",
     "static/media/pop.png": "/PopQuote/static/media/pop.8f50c97784d9fde79c3e.png",
+    "static/media/orientalRiff.mp3": "/PopQuote/static/media/orientalRiff.009edc2622ec26c719de.mp3",
+    "static/media/achievement.mp3": "/PopQuote/static/media/achievement.4378e9fa9e4ca0b2781e.mp3",
     "static/media/fira-sans-latin-ext-400-italic.woff2": "/PopQuote/static/media/fira-sans-latin-ext-400-italic.5f12a70d16a05be09802.woff2",
     "static/media/fira-sans-latin-ext-400-normal.woff2": "/PopQuote/static/media/fira-sans-latin-ext-400-normal.52a497743ad464bd5589.woff2",
     "static/media/fira-sans-latin-ext-400-italic.woff": "/PopQuote/static/media/fira-sans-latin-ext-400-italic.185e7218e28bbaa67ba5.woff",
@@ -38,15 +40,15 @@
     "static/media/fira-sans-greek-ext-400-italic.woff": "/PopQuote/static/media/fira-sans-greek-ext-400-italic.997b9d119ca393be372c.woff",
     "static/media/fira-sans-greek-ext-400-normal.woff": "/PopQuote/static/media/fira-sans-greek-ext-400-normal.0632e95f661cec655e24.woff",
     "static/media/fira-sans-vietnamese-400-normal.woff": "/PopQuote/static/media/fira-sans-vietnamese-400-normal.04a5d0467eb9ab4523e7.woff",
-    "static/media/quotes.txt": "/PopQuote/static/media/quotes.041dabf8bef55a9fd6be.txt",
+    "static/media/quotes.txt": "/PopQuote/static/media/quotes.b7714ef083f96af23f73.txt",
     "static/media/BrowserBackground.svg": "/PopQuote/static/media/BrowserBackground.a31246a30f6eb063d59f050a21d48914.svg",
     "index.html": "/PopQuote/index.html",
-    "main.85fc96ba.css.map": "/PopQuote/static/css/main.85fc96ba.css.map",
-    "main.d7d28338.js.map": "/PopQuote/static/js/main.d7d28338.js.map",
+    "main.a546941a.css.map": "/PopQuote/static/css/main.a546941a.css.map",
+    "main.43a7a330.js.map": "/PopQuote/static/js/main.43a7a330.js.map",
     "496.eb2b6583.chunk.js.map": "/PopQuote/static/js/496.eb2b6583.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.85fc96ba.css",
-    "static/js/main.d7d28338.js"
+    "static/css/main.a546941a.css",
+    "static/js/main.43a7a330.js"
   ]
 }
