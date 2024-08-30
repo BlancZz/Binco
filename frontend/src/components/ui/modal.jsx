@@ -78,6 +78,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                   <textarea
                     id="msg-name"
                     className="form-control form-control-sm"
+                    placeholder="(optional)"
                     cols="40"
                     rows="1"
                     name="name"
@@ -92,6 +93,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                     required
                     id="msg-textarea"
                     className="form-control form-control-sm"
+                    placeholder="Miss Zeng stinx"
                     cols="40"
                     rows="3"
                     name="message"

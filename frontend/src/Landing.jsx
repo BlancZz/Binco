@@ -1,16 +1,19 @@
 'use client';
 import React from 'react';
-import NavBar from './NavBar';
+// import NavBar from './NavBar';
 // import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 
 // import pop from './assets/pop.png';
 import popAudio1 from './assets/audio/pop1_c.mp3';
-import popAudio2 from './assets/audio/pop2.mp3';
+// import popAudio2 from './assets/audio/pop2.mp3';
 import orientalRiff from './assets/audio/orientalRiff.mp3';
+import leFestinAudio from './assets/audio/le-festin.mp3';
+import meowAudio from './assets/audio/meow-1.mp3';
 import achievementAudio from './assets/audio/achievement.mp3';
-import { useTheme } from './ThemeContext';
+import partyblowerAudio from './assets/audio/partyblower.mp3';
+import hornAudio from './assets/audio/horn.mp3';
+// import { useTheme } from './ThemeContext';
 import quotes_file from './quotes.txt';
 
 import DrawOutlineButton from './components/ui/drawOutlineButton';
@@ -18,57 +21,59 @@ import Modal from './components/ui/modal';
 
 import Snackbar from '@mui/material/Snackbar';
 
+import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+
 const Landing = () => {
   // const navigate = useNavigate();
-  const { mode } = useTheme();
+  // const { mode } = useTheme();
 
   const [mouseDown, setMouseDown] = React.useState(false);
   // let popVariation = true;
 
   const [timer, setTimer] = React.useState(Date.now());
-  const [easter, setEaster] = React.useState();
+  const [easterAudio, setEasterAudio] = React.useState();
   const [spam, setSpam] = React.useState(false);
+
   const [achieved, setAchieved] = React.useState([]);
-  const maxAchieve = 4;
+  const maxAchieve = 7;
   const [achievement, setAchievement] = React.useState('');
 
+  const [quotes, setQuotes] = React.useState([]);
+  const [quote, setQuote] = React.useState('Click! (^._.^)ノ');
+  const [seen, setSeen] = React.useState([]);
+  const [seenAll, setSeenAll] = React.useState(false);
+  const [currentPointer, setCurrentPointer] = React.useState(-1);
+
+  const [numClicks, setNumClicks] = React.useState(0);
+  const [numQuotes, setNumQuotes] = React.useState(0);
+  const [rotate, setRotate] = React.useState(false);
+
   function playPop() {
-    if (easter) {
+    if (easterAudio) {
+      console.log('easterAudio popped');
       if (
-        easter.played.length > 0 &&
-        easter.played.end(0) >= 4.5 &&
-        !achieved.includes('dim sum')
+        ((easterAudio.played.length > 0 && easterAudio.played.end(0) >= 2) ||
+          achievement === 'Meow meow') &&
+        !achieved.includes(achievement)
       ) {
-        setAchievement('Dim Sum');
-        setAchieved((achieved) => [...achieved, 'dim sum']);
-        new Audio(achievementAudio).play();
-        setState({
-          ...{
-            vertical: 'top',
-            horizontal: 'center',
-          },
-          open: true,
+        snackBarOpen(achievement);
+      } else {
+        easterAudio.play().then(() => {
+          easterAudio.pause();
         });
-      } else if (easter.played.length > 0) {
-        easter.pause();
+        easterAudio.currentTime = 0;
+        setEasterAudio();
+        console.log('easterAudio stopped');
       }
-      setEaster();
     }
 
     if (Date.now() - timer < 200) {
       new Audio(popAudio1).play();
 
-      if (Date.now() - timer < 72 && !achieved.includes('hax')) {
-        setAchievement('What the Autoclicker');
-        setAchieved((achieved) => [...achieved, 'hax']);
-        new Audio(achievementAudio).play();
-        setState({
-          ...{
-            vertical: 'top',
-            horizontal: 'center',
-          },
-          open: true,
-        });
+      if (Date.now() - timer < 72 && !achieved.includes('Hax')) {
+        setAchievement('What the Autoclicker? Hax?');
+        setAchieved((achieved) => [...achieved, 'Hax']);
+        snackBarOpen('Hax');
       }
 
       if (spam) {
@@ -79,10 +84,21 @@ const Landing = () => {
       setSpam(!spam);
     } else {
       const index = generateQuote();
-      if (index === 47) {
+      if (index === 0) {
         const oRiff = new Audio(orientalRiff);
         oRiff.play();
-        setEaster(oRiff);
+        setEasterAudio(oRiff);
+        setAchievement('Dim Sum');
+      } else if (index === 1) {
+        const leFestin = new Audio(leFestinAudio);
+        leFestin.play();
+        setEasterAudio(leFestin);
+        setAchievement('Ratatoullie? Why do they call it that?');
+      } else if (index === 2) {
+        const meow = new Audio(meowAudio);
+        meow.play();
+        setEasterAudio(meow);
+        setAchievement('Meow meow');
       } else {
         new Audio(popAudio1).play();
       }
@@ -91,25 +107,12 @@ const Landing = () => {
     setTimer(Date.now());
     setMouseDown(true);
     setNumClicks(numClicks + 1);
-    if (numClicks === 1000 && !achieved.includes('click')) {
+    if (numClicks === 300 && !achieved.includes('Click Manic')) {
       setAchievement('Click Manic');
-      setAchieved((achieved) => [...achieved, 'click']);
-      new Audio(achievementAudio).play();
-      setState({
-        ...{
-          vertical: 'top',
-          horizontal: 'center',
-        },
-        open: true,
-      });
+      setAchieved((achieved) => [...achieved, 'Click Manic']);
+      snackBarOpen('Click Manic');
     }
   }
-
-  const [quotes, setQuotes] = React.useState([]);
-  const [quote, setQuote] = React.useState('Click! (^._.^)ノ');
-  const [seen, setSeen] = React.useState([]);
-  const [seenAll, setSeenAll] = React.useState(false);
-  const [currentPointer, setCurrentPointer] = React.useState(-1);
 
   React.useEffect(() => {
     fetch(quotes_file)
@@ -121,23 +124,37 @@ const Landing = () => {
             .filter((subArray) => subArray.length > 0)
             .map((s) => s.replaceAll('\n', ''))
         );
+      })
+      .then(() => {
+        // function handleKeyDown(e) {
+        //   if (e.repeat) return;
+        //   console.log(e.keyCode);
+        //   if (e.keyCode === 32) {
+        //     playPop();
+        //   } else if (e.keyCode === 39) {
+        //     forwardQuote();
+        //   }
+        // }
+        // function handleKeyUp(e) {
+        //   setMouseDown(false);
+        // }
+        // document.addEventListener('keydown', handleKeyDown);
+        // document.addEventListener('keyup', handleKeyUp);
+        // // Don't forget to clean up
+        // return function cleanup() {
+        //   document.removeEventListener('keydown', handleKeyDown);
+        //   document.removeEventListener('keyup', handleKeyUp);
+        // };
       });
   }, []);
 
   function generateQuote() {
     if (seen.length >= quotes.length) {
-      setQuote('smol brain, no more quotes, contribute quote for us?');
-      if (!achieved.includes('smol')) {
+      setQuote('Smol brain, no more quotes, contribute quote for us?');
+      if (!achieved.includes('Smol Brain')) {
         setAchievement('Smol Brain');
-        setAchieved((achieved) => [...achieved, 'smol']);
-        new Audio(achievementAudio).play();
-        setState({
-          ...{
-            vertical: 'top',
-            horizontal: 'center',
-          },
-          open: true,
-        });
+        setAchieved((achieved) => [...achieved, 'Smol Brain']);
+        snackBarOpen('Smol Brain');
       }
       setSeenAll(true);
       setCurrentPointer(seen.length);
@@ -166,6 +183,10 @@ const Landing = () => {
     setSeenAll(false);
     if (currentPointer <= 0) {
       setQuote("can't time travel before the first quote >_<");
+      if (!achieved.includes('Time Traveler')) {
+        setAchievement('Time Traveler');
+        snackBarOpen('Time Traveler');
+      }
       setCurrentPointer(-1);
     } else {
       setQuote(quotes[seen[currentPointer - 1]]);
@@ -193,9 +214,25 @@ const Landing = () => {
   });
   const { vertical, horizontal, open } = state;
 
-  const handleClick = (newState) => () => {
-    setState({ ...newState, open: true });
-  };
+  function snackBarOpen(achievement) {
+    setAchieved(() => [...achieved, achievement]);
+    console.log(achieved);
+    console.log(achievement);
+
+    if (achieved.length < maxAchieve - 1) {
+      new Audio(achievementAudio).play();
+    } else {
+      new Audio(hornAudio).play();
+    }
+
+    setState({
+      ...{
+        vertical: 'top',
+        horizontal: 'center',
+      },
+      open: true,
+    });
+  }
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -208,9 +245,6 @@ const Landing = () => {
       horizontal: 'center',
     });
   };
-
-  const [numClicks, setNumClicks] = React.useState(0);
-  const [numQuotes, setNumQuotes] = React.useState(0);
 
   return (
     <body>
@@ -277,7 +311,7 @@ const Landing = () => {
           <Box>
             <Box
               sx={{
-                color: achieved.length == maxAchieve ? '#ff5c5c' : 'black',
+                color: achieved.length === maxAchieve ? '#ff5c5c' : 'black',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -285,8 +319,19 @@ const Landing = () => {
             >
               <Box
                 sx={{
-                  display: achieved.length == maxAchieve ? 'block' : 'none',
+                  display: achieved.length === maxAchieve ? 'in-line' : 'none',
                   marginRight: '0.5rem',
+                  transform: rotate ? 'rotate(360deg)' : 'rotate(-360deg)',
+                  transition: 'transform 1.25s ease',
+                }}
+                onClick={(e) => {
+                  setRotate(!rotate);
+                  new Audio(partyblowerAudio).play();
+
+                  if (Date.now() - timer > 200) {
+                    confetti();
+                    setTimer(Date.now());
+                  }
                 }}
               >
                 <svg
@@ -360,7 +405,7 @@ const Landing = () => {
             }}
             className="bg-gradient-to-r from-violet-500 to-red-400 text-white font-medium px-4 py-2 rounded opacity-80 hover:opacity-100 transition-opacity"
           >
-            Reset :T
+            Restart :T
           </button>
         </Box>
         <Box
