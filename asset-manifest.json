@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PopQuote/static/css/main.b3422a01.css",
-    "main.js": "/PopQuote/static/js/main.41e2f775.js",
+    "main.js": "/PopQuote/static/js/main.4fbf0aaf.js",
     "static/js/496.eb2b6583.chunk.js": "/PopQuote/static/js/496.eb2b6583.chunk.js",
     "static/media/DarkBackground.png": "/PopQuote/static/media/DarkBackground.41df42db73253353e009.png",
     "static/media/LightBackground.png": "/PopQuote/static/media/LightBackground.32ded752719a282d39ca.png",
@@ -47,11 +47,11 @@
     "static/media/BrowserBackground.svg": "/PopQuote/static/media/BrowserBackground.a31246a30f6eb063d59f050a21d48914.svg",
     "index.html": "/PopQuote/index.html",
     "main.b3422a01.css.map": "/PopQuote/static/css/main.b3422a01.css.map",
-    "main.41e2f775.js.map": "/PopQuote/static/js/main.41e2f775.js.map",
+    "main.4fbf0aaf.js.map": "/PopQuote/static/js/main.4fbf0aaf.js.map",
     "496.eb2b6583.chunk.js.map": "/PopQuote/static/js/496.eb2b6583.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b3422a01.css",
-    "static/js/main.41e2f775.js"
+    "static/js/main.4fbf0aaf.js"
   ]
 }
