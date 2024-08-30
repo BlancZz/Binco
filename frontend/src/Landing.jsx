@@ -315,23 +315,29 @@ const Landing = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                cursor: 'pointer',
+                '&:hover': {
+                  opacity: '90%',
+                  transform: 'scale(1.05)',
+                  transition: 'transform 0.5s ease',
+                },
+              }}
+              onClick={(e) => {
+                setRotate(!rotate);
+                new Audio(partyblowerAudio).play();
+
+                if (Date.now() - timer > 200) {
+                  confetti();
+                  setTimer(Date.now());
+                }
               }}
             >
               <Box
                 sx={{
-                  display: achieved.length === maxAchieve ? 'in-line' : 'none',
+                  display: achieved.length !== maxAchieve ? 'in-line' : 'none',
                   marginRight: '0.5rem',
                   transform: rotate ? 'rotate(360deg)' : 'rotate(-360deg)',
                   transition: 'transform 1.25s ease',
-                }}
-                onClick={(e) => {
-                  setRotate(!rotate);
-                  new Audio(partyblowerAudio).play();
-
-                  if (Date.now() - timer > 200) {
-                    confetti();
-                    setTimer(Date.now());
-                  }
                 }}
               >
                 <svg
