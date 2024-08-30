@@ -16,6 +16,7 @@
     "@types/type-name": "^1.0.32",
     "@uidotdev/usehooks": "^2.4.1",
     "axios": "^1.6.4",
+    "canvas-confetti": "^1.9.3",
     "clsx": "^2.1.1",
     "cra-template": "1.2.0",
     "fabric": "^5.3.0",

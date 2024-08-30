@@ -21,7 +21,7 @@ import Modal from './components/ui/modal';
 
 import Snackbar from '@mui/material/Snackbar';
 
-import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+import confetti from '../node_modules/canvas-confetti/src/confetti.js';
 
 const Landing = () => {
   // const navigate = useNavigate();
@@ -319,7 +319,8 @@ const Landing = () => {
             >
               <Box
                 sx={{
-                  display: achieved.length === maxAchieve ? 'in-line' : 'none',
+                  display:
+                    achieved.length === maxAchieve ? 'in-line' : 'in-line',
                   marginRight: '0.5rem',
                   transform: rotate ? 'rotate(360deg)' : 'rotate(-360deg)',
                   transition: 'transform 1.25s ease',
