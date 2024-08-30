@@ -58,7 +58,7 @@ const Landing = () => {
     if (Date.now() - timer < 200) {
       new Audio(popAudio1).play();
 
-      if (Date.now() - timer < 20 && !achieved.includes('hax')) {
+      if (Date.now() - timer < 72 && !achieved.includes('hax')) {
         setAchievement('What the Autoclicker');
         setAchieved((achieved) => [...achieved, 'hax']);
         new Audio(achievementAudio).play();
