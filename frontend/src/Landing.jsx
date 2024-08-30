@@ -334,7 +334,7 @@ const Landing = () => {
             >
               <Box
                 sx={{
-                  display: achieved.length !== maxAchieve ? 'in-line' : 'none',
+                  display: achieved.length === maxAchieve ? 'in-line' : 'none',
                   marginRight: '0.5rem',
                   transform: rotate ? 'rotate(360deg)' : 'rotate(-360deg)',
                   transition: 'transform 1.25s ease',
