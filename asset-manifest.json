@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PopQuote/static/css/main.a546941a.css",
-    "main.js": "/PopQuote/static/js/main.43a7a330.js",
+    "main.css": "/PopQuote/static/css/main.dc71dcdc.css",
+    "main.js": "/PopQuote/static/js/main.9f0fadfd.js",
     "static/js/496.eb2b6583.chunk.js": "/PopQuote/static/js/496.eb2b6583.chunk.js",
     "static/media/DarkBackground.png": "/PopQuote/static/media/DarkBackground.41df42db73253353e009.png",
     "static/media/LightBackground.png": "/PopQuote/static/media/LightBackground.32ded752719a282d39ca.png",
@@ -40,15 +40,15 @@
     "static/media/fira-sans-greek-ext-400-italic.woff": "/PopQuote/static/media/fira-sans-greek-ext-400-italic.997b9d119ca393be372c.woff",
     "static/media/fira-sans-greek-ext-400-normal.woff": "/PopQuote/static/media/fira-sans-greek-ext-400-normal.0632e95f661cec655e24.woff",
     "static/media/fira-sans-vietnamese-400-normal.woff": "/PopQuote/static/media/fira-sans-vietnamese-400-normal.04a5d0467eb9ab4523e7.woff",
-    "static/media/quotes.txt": "/PopQuote/static/media/quotes.b7714ef083f96af23f73.txt",
+    "static/media/quotes.txt": "/PopQuote/static/media/quotes.39bc07a39304a76205af.txt",
     "static/media/BrowserBackground.svg": "/PopQuote/static/media/BrowserBackground.a31246a30f6eb063d59f050a21d48914.svg",
     "index.html": "/PopQuote/index.html",
-    "main.a546941a.css.map": "/PopQuote/static/css/main.a546941a.css.map",
-    "main.43a7a330.js.map": "/PopQuote/static/js/main.43a7a330.js.map",
+    "main.dc71dcdc.css.map": "/PopQuote/static/css/main.dc71dcdc.css.map",
+    "main.9f0fadfd.js.map": "/PopQuote/static/js/main.9f0fadfd.js.map",
     "496.eb2b6583.chunk.js.map": "/PopQuote/static/js/496.eb2b6583.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a546941a.css",
-    "static/js/main.43a7a330.js"
+    "static/css/main.dc71dcdc.css",
+    "static/js/main.9f0fadfd.js"
   ]
 }
