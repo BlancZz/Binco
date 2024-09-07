@@ -38,14 +38,10 @@ const NavBar = () => {
             y: -75,
             position: 'absolute',
             backgroundColor: mode === 'dark' ? '#35354F' : '#eb78a9',
-            paddingLeft: '2rem',
-            paddingRight: '1rem',
             height: '4rem',
             width: '100%',
             fontWeight: 'bolder',
             fontSize: '1.1rem',
-            // position: 'fixed',
-            // top: '0',
             zIndex: '10',
             display: 'flex',
             justifyContent: 'space-between',
@@ -58,14 +54,10 @@ const NavBar = () => {
             position: 'fixed',
             top: '0',
             backgroundColor: mode === 'dark' ? '#35354F' : '#eb78a9',
-            paddingLeft: '2rem',
-            paddingRight: '1rem',
             height: '4rem',
             width: '100%',
             fontWeight: 'bolder',
             fontSize: '1.1rem',
-            // position: 'fixed',
-            // top: '0',
             zIndex: '10',
             display: 'flex',
             justifyContent: 'space-between',
@@ -81,9 +73,7 @@ const NavBar = () => {
           ref={navRef}
           class="navbar navbar-expand-lg navbar-dark"
           style={{
-            backgroundColor: mode === 'dark' ? '#35354F' : '#eb78a9',
-            paddingLeft: '2rem',
-            paddingRight: '1rem',
+            backgroundColor: mode === 'dark' ? '#352D64' : '#FEC5EB',
             height: '4rem',
             width: '100%',
             fontWeight: 'bolder',
@@ -94,14 +84,21 @@ const NavBar = () => {
             display: 'flex',
             justifyContent: 'space-between',
             borderBottom: 'thick solid',
-            borderColor: mode === 'dark' ? '#4f46e5' : '#e6d7ff',
+            borderColor: mode === 'dark' ? '#9F7CD7' : '#EE79C6',
           }}
           initial="hidden"
           animate={mainControls}
           transition={{ duration: 0.5, delay: 0.25 }}
         >
-          <a class="navbar-brand" href="#">
-            Brisk
+          <a
+            style={{
+              margin: '2rem',
+              color: mode === 'light' ? 'indigo' : 'white',
+            }}
+            class="navbar-brand"
+            href="#"
+          >
+            Binco tings
           </a>
           <button
             class="navbar-toggler"

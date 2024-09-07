@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 // import NavBar from './NavBar';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
 // import pop from './assets/pop.png';
@@ -24,7 +24,7 @@ import Snackbar from '@mui/material/Snackbar';
 import confetti from '../node_modules/canvas-confetti/src/confetti.js';
 
 const Landing = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const { mode } = useTheme();
 
   const [mouseDown, setMouseDown] = React.useState(false);
@@ -265,13 +265,19 @@ const Landing = () => {
         <Box
           sx={{
             position: 'absolute',
-            top: '1%',
-            left: '10%',
+            top: '0rem',
+            left: '0',
             typography: 'h3',
-            margin: '2rem',
+            margin: '1rem',
+            marginLeft: '2rem',
+          }}
+          onClick={() => {
+            navigate('/');
           }}
         >
-          <title>PopQuote</title>
+          <span id="popTItle">
+            <p>PopQuote</p>
+          </span>
         </Box>
         <Box sx={{ width: 500 }}>
           <Snackbar
@@ -287,10 +293,11 @@ const Landing = () => {
           sx={{
             position: 'absolute',
             top: 0,
-            left: '20%',
+            left: '15%',
             margin: '2rem',
-            opacity: '20%',
+            opacity: '5%',
             // color: '#448Aff',
+            transition: '0.5s ease',
             '&:hover': {
               opacity: '50%',
             },
@@ -386,12 +393,12 @@ const Landing = () => {
           }}
         >
           {/* highlight colour previously bg-yellow-300*/}
-          <div class="selection:bg-[#C3B1E1]">{quote}</div>
+          <div class="selection:bg-[#C3B1E1] font-family: Georgia">{quote}</div>
         </Box>
         <Box
           sx={{
             margin: '1rem',
-            width: '20%',
+            width: '25%',
             display: 'flex',
             position: seenAll ? 'static' : 'absolute',
             top: 0,
@@ -409,7 +416,10 @@ const Landing = () => {
               setCurrentPointer(-1);
               setNumQuotes(0);
             }}
-            className="bg-gradient-to-r from-violet-500 to-red-400 text-white font-medium px-4 py-2 rounded opacity-80 hover:opacity-100 transition-opacity"
+            className="px-8 py-0.5 border-2 border-black dark:border-white uppercase bg-white 
+              text-black transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)]
+              dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]
+              transition-all duration-200 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[0px_0px_0px]"
           >
             Restart :T
           </button>

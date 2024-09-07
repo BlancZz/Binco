@@ -17,9 +17,18 @@ const Modal = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div /* className="px-4 py-64 bg-slate-900 grid place-content-center"*/>
-      <button
+      {/* <button
         onClick={() => setIsOpen(true)}
         className="bg-gradient-to-r from-blue-400 to-indigo-500 text-white font-medium px-4 py-2 rounded opacity-80 hover:opacity-100 transition-opacity"
+      >
+        Add Quote :3
+      </button> */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className="px-8 py-0.5 border-2 border-black dark:border-white uppercase bg-white 
+        text-black transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)]
+        dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]
+        transition-all duration-200 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[0px_0px_0px]"
       >
         Add Quote :3
       </button>
@@ -93,7 +102,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                     required
                     id="msg-textarea"
                     className="form-control form-control-sm"
-                    placeholder="Miss Zeng stinx"
+                    placeholder="Roses are red, Violets are grey, have you had your inner health plus today?"
                     cols="40"
                     rows="3"
                     name="message"

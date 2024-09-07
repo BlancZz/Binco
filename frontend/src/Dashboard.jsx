@@ -1,81 +1,95 @@
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BrowserBackground from './BrowserBackground.svg';
 import BrowserWindow from './components/BrowserWindow';
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import NavBar from './NavBar';
+import { useTheme } from './ThemeContext';
+
+import sprockets from './assets/sprockets.png';
 
 function Dashboard() {
   const navigate = useNavigate();
+  const { mode } = useTheme();
+
+  const [popOpen, setPopOpen] = useState(false);
 
   return (
-    <div className="w-full h-full d-flex flex-column  align-items-center">
-      <h1 style={{ textAlign: 'center' }}>Dashboard</h1>
-      <BrowserWindow>
-        <div
-          id="dashboard-form"
-          className="d-flex justify-content-center align-items-center"
+    <>
+      <NavBar />
+      <Box
+        sx={{
+          width: '100vw',
+          height: '100vh',
+          padding: '1rem',
+          paddingTop: '5rem',
+          bgcolor: mode === 'light' ? '#eabef3' : '#54418d',
+        }}
+        className="w-full h-full d-flex flex-column align-items-center"
+      >
+        <Box
+          sx={{
+            width: '100vw',
+            display: 'flex',
+            justifyContent: 'space-around',
+          }}
         >
-          <form className="d-flex flex-column">
-            <div className="mb-3">
-              <label className="form-label">Name</label>
-              <input
-                type="text"
-                className="form-control form-control-sm"
-                name="name"
-                // value={sessionStorage.getItem('UserName')}
-                id="name-input"
-              />
-            </div>
-            {/* <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" />
-                <div id="passwordHelp" className="form-text">(optional)</div>
-              </div> */}
-            <div className="mb-3 form-check">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck1"
-              />
-              <label className="form-check-label" htmlFor="exampleCheck1">
-                Check me out
-              </label>
-            </div>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-              <button
-                className="btn btn-primary btn-sm"
-                // style={{ width: '15%' }}
-                // disabled={!isValid}
-                onClick={(e) => {
-                  e.preventDefault();
-                  sessionStorage.removeItem('UserName');
-                  console.log('removed user');
-                  navigate('/message');
+          <BrowserWindow>
+            <Card
+              id="dashboard-form"
+              className="d-flex justify-content-center align-items-center"
+              onClick={() => {
+                navigate('/PopQuote');
+              }}
+              sx={{ cursor: 'pointer' }}
+            >
+              <img
+                id="popCard"
+                style={{
+                  maxWidth: '100%',
+                  overflow: 'hidden',
                 }}
-              >
-                remove name
-              </button>
-              <button
-                type="submit"
-                className="btn btn-primary btn-sm"
-                // disabled={!isValid}
-                onClick={(e) => {
-                  e.preventDefault();
-                  sessionStorage.setItem(
-                    'UserName',
-                    document.getElementById('name-input').value
-                  );
-                  console.log(sessionStorage.getItem('UserName'));
-                  navigate('/message');
+                onMouseEnter={() => {
+                  setPopOpen(true);
                 }}
-              >
-                Submit
-              </button>
-            </Box>
-          </form>
-          {/* </div> */}
-        </div>
-      </BrowserWindow>
-    </div>
+                onMouseLeave={() => {
+                  setPopOpen(false);
+                }}
+                src={
+                  popOpen
+                    ? require('./assets/popQuoteCardOpen.png')
+                    : require('./assets/popQuoteCardClosed.png')
+                }
+              />
+            </Card>
+          </BrowserWindow>
+          <BrowserWindow>
+            <Card
+              id="dashboard-form"
+              className="d-flex justify-content-center align-items-center"
+              sx={{ cursor: 'pointer' }}
+              onClick={() => {
+                window.open(
+                  'https://gx.games/games/xinz3a/sprocks/tracks/9c1d499d-51de-416f-a689-f74c62edb08c/'
+                );
+              }}
+            >
+              <img
+                style={{
+                  maxWidth: '100%',
+                  overflow: 'hidden',
+                }}
+                sx={{ overflow: 'hidden' }}
+                src={require('./assets/sprockets.png')}
+                alt="Sprockets  "
+              />
+            </Card>
+          </BrowserWindow>
+        </Box>
+      </Box>
+    </>
   );
 }
 

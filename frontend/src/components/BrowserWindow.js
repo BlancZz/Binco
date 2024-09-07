@@ -10,13 +10,19 @@ const BrowserWindow = ({ children }) => {
     <Box
       sx={{
         bgcolor: mode === 'light' ? 'white' : '#4F4686',
-        minWidth: '35rem',
+        // minWidth: '35rem',
+        width: '35rem',
         minHeight: '20rem',
         borderRadius: '1rem',
         border: `2px solid ${mode === 'light' ? '#EE79C6' : '#9F7CD7'}`,
         overflow: 'hidden',
         filter: 'drop-shadow(rgba(0,0,0,0.3) 16px 16px)',
         boxSizing: 'border-box',
+        transition: '0.5s ease',
+        '&:hover': {
+          filter: 'drop-shadow(rgba(0,0,0,0.3) 0px 0px)',
+          transform: 'translateX(16px) translateY(16px)',
+        },
       }}
     >
       <Box

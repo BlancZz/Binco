@@ -41,8 +41,8 @@ const PageList = () => {
         }}
       > */}
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/PopQuote" element={<Landing />} />
         {/* <Route path='/game/math' element={<Maths/>} />*/}
         <Route path="/whiteboard" element={<WhiteboardPage />} />
         <Route path="/message" element={<MessagePage />} />
