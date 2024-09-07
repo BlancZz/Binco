@@ -1,13 +1,16 @@
 import React, { createContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
-import Dashboard from './Dashboard';
+
 // import Maths from './Maths';
 // import Connect from './Connect';
 import MessagePage from './components/msger/MessagePage';
 import Whiteboard from './components/whiteboard/Whiteboard';
 import WhiteboardPage from './components/whiteboard/WhiteboardPage';
 import Landing from './Landing';
+import PopQuote from './PopQuote';
+import Dashboard from './Dashboard';
+
 import { ThemeContext } from './ThemeContext';
 
 import DarkBackground from './assets/DarkBackground.png';
@@ -42,7 +45,8 @@ const PageList = () => {
       > */}
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/PopQuote" element={<Landing />} />
+        <Route path="/PopQuote" element={<Dashboard />} />
+        <Route path="/Quotes" element={<PopQuote />} />
         {/* <Route path='/game/math' element={<Maths/>} />*/}
         <Route path="/whiteboard" element={<WhiteboardPage />} />
         <Route path="/message" element={<MessagePage />} />
