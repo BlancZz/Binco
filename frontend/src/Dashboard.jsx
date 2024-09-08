@@ -87,6 +87,18 @@ function Dashboard() {
               />
             </Card>
           </BrowserWindow>
+          <BrowserWindow>
+            <Card
+              id="dashboard-form"
+              className="d-flex justify-content-center align-items-center"
+              onClick={() => {
+                navigate('/Lover');
+              }}
+              sx={{ cursor: 'pointer' }}
+            >
+              <h1>WIP - Wasting time with you</h1>
+            </Card>
+          </BrowserWindow>
         </Box>
       </Box>
     </>

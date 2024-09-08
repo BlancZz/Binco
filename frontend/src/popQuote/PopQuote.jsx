@@ -5,25 +5,25 @@ import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
 // import pop from './assets/pop.png';
-import popAudio1 from './assets/audio/pop1_c.mp3';
+import popAudio1 from '../assets/audio/pop1_c.mp3';
 // import popAudio2 from './assets/audio/pop2.mp3';
-import orientalRiff from './assets/audio/orientalRiff.mp3';
-import leFestinAudio from './assets/audio/le-festin.mp3';
-import meowAudio from './assets/audio/meow-1.mp3';
-import achievementAudio from './assets/audio/achievement.mp3';
-import partyblowerAudio from './assets/audio/partyblower.mp3';
-import hornAudio from './assets/audio/horn.mp3';
+import orientalRiff from '../assets/audio/orientalRiff.mp3';
+import leFestinAudio from '../assets/audio/le-festin.mp3';
+import meowAudio from '../assets/audio/meow-1.mp3';
+import achievementAudio from '../assets/audio/achievement.mp3';
+import partyblowerAudio from '../assets/audio/partyblower.mp3';
+import hornAudio from '../assets/audio/horn.mp3';
 // import { useTheme } from './ThemeContext';
 import quotes_file from './quotes.txt';
 
-import DrawOutlineButton from './components/ui/drawOutlineButton';
-import Modal from './components/ui/modal';
+import DrawOutlineButton from '../components/ui/drawOutlineButton.jsx';
+import Modal from '../components/ui/modal.jsx';
 
 import Snackbar from '@mui/material/Snackbar';
 
-import confetti from '../node_modules/canvas-confetti/src/confetti.js';
+import confetti from 'canvas-confetti';
 
-const Landing = () => {
+const PopQuote = () => {
   const navigate = useNavigate();
   // const { mode } = useTheme();
 
@@ -276,7 +276,7 @@ const Landing = () => {
           }}
         >
           <span id="popTItle">
-            <p>PopQuote</p>
+            <p id="paragraph">PopQuote</p>
           </span>
         </Box>
         <Box sx={{ width: 500 }}>
@@ -437,20 +437,9 @@ const Landing = () => {
             setMouseDown(false);
           }}
         >
-          {/* <Button
-            onClick={(e) => {
-              setSeenAll(true);
-            }}
-          >
-            end debugging
-          </Button> */}
           <img
             class="popcat"
-            src={
-              mouseDown
-                ? require('./assets/cat.png')
-                : require('./assets/pop.png')
-            }
+            src={mouseDown ? require('./cat.png') : require('./pop.png')}
             width={250}
             height={250}
             alt="pop cat"
@@ -539,4 +528,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default PopQuote;
