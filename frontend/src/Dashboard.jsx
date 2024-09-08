@@ -41,7 +41,7 @@ function Dashboard() {
               id="dashboard-form"
               className="d-flex justify-content-center align-items-center"
               onClick={() => {
-                navigate('/PopQuote');
+                navigate('/Quotes');
               }}
               sx={{ cursor: 'pointer' }}
             >
