@@ -4,6 +4,7 @@ import { ThemeContext } from '../ThemeContext';
 import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
+import Snackbar from '@mui/material/Snackbar';
 
 import StrengthMeter from '../components/ui/strengthMeter';
 
@@ -14,7 +15,10 @@ const Lover = () => {
   // const { mode } = useTheme();
 
   const [count, setCount] = React.useState(0);
+  const [auto, setAuto] = React.useState(0);
   const [multiplier, setMultiplier] = React.useState(1);
+  const [x2Cost, setX2Cost] = React.useState(100);
+  const [autoCost, setAutoCost] = React.useState(40);
 
   const createParticle = (x, y) => {
     const heartClicks = document.querySelector('.heart-clicks');
@@ -25,12 +29,68 @@ const Lover = () => {
     particle.style.left = x + 'px';
     particle.style.top = y + 'px';
 
+    const para = document.createElement('p');
+    const textNode = document.createTextNode('+' + multiplier);
+    para.setAttribute('class', 'heart-particle');
+    para.appendChild(textNode);
+    para.style.left = x + 30 + 'px';
+    para.style.top = y + 'px';
+    para.style.color = 'pink';
+
     heartClicks.appendChild(particle);
+    heartClicks.appendChild(para);
 
     setTimeout(() => {
       heartClicks.removeChild(particle);
+      heartClicks.removeChild(para);
     }, 3000);
   };
+
+  const [state, setState] = React.useState({
+    open: false,
+    vertical: 'top',
+    horizontal: 'center',
+  });
+
+  const { vertical, horizontal, open } = state;
+
+  function snackBarOpen() {
+    setState({
+      ...{
+        vertical: 'top',
+        horizontal: 'right',
+      },
+      open: true,
+    });
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setState({
+      open: false,
+      vertical: 'top',
+      horizontal: 'center',
+    });
+  };
+
+  const autoClick = () => {
+    console.log('what' + count);
+    setCount(count + 2);
+    console.log('pp' + count);
+  };
+
+  React.useEffect(() => {
+    const id = setTimeout(
+      () => {
+        setCount(count + 1);
+      },
+      auto > 0 ? 1000 / auto : 3600000
+    );
+    return () => clearTimeout(id);
+  }, [count, auto]);
 
   return (
     <Box
@@ -46,6 +106,71 @@ const Lover = () => {
         padding: '20px 0',
       }}
     >
+      <Box sx={{ width: 500 }}>
+        <Snackbar
+          anchorOrigin={{ vertical, horizontal }}
+          open={open}
+          autoHideDuration={5000}
+          onClose={handleClose}
+          message={"You're too poor D:"}
+          key={vertical + horizontal}
+        />
+      </Box>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'fixed',
+          top: '15px',
+          left: '0',
+          typography: 'h4',
+          margin: '1rem',
+          marginLeft: '2rem',
+          cursor: 'pointer',
+        }}
+        onClick={() => {
+          navigate('/');
+        }}
+      >
+        <Box
+          sx={{
+            marginRight: '1rem',
+          }} /*id="heart-title-container"*/
+        >
+          <svg
+            class="heart-title"
+            width="64px"
+            height="64px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="#bc90fe"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              {' '}
+              <path
+                d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+                fill="#df99ff"
+              ></path>{' '}
+            </g>
+          </svg>
+        </Box>
+        <div
+          style={{
+            textShadow: '0 0 10px #000',
+          }}
+          class="main-quote"
+        >
+          愛とは
+        </div>
+      </Box>
       <div id="score" class="score">
         <span>{count}</span> hearts
       </div>
@@ -71,13 +196,12 @@ const Lover = () => {
             },
           }}
           onClick={(e) => {
-            setCount(count + 1);
+            setCount(count + multiplier);
             createParticle(
               e.clientX + Math.floor(Math.random() * 10 - 5) - 8,
               e.clientY
             );
           }}
-          class="heart-container"
         >
           <svg
             id="heart"
@@ -111,7 +235,20 @@ const Lover = () => {
         <div class="cursors"></div>
       </div>
       <div class="powerups">
-        <div class="powerup" id="auto-click" data-price="40">
+        <div
+          class="powerup"
+          id="auto-click"
+          data-price="40"
+          onClick={(e) => {
+            if (count >= autoCost) {
+              setCount(count - autoCost);
+              setAutoCost(Math.floor(autoCost * 1.1));
+              setAuto(auto + 1);
+            } else {
+              snackBarOpen();
+            }
+          }}
+        >
           {/* <img
               src="img/cursor.png"
               alt="cursor"
@@ -135,10 +272,23 @@ const Lover = () => {
           </svg>
           <p class="name">Auto Click</p>
           <p class="price">
-            <span>40</span> hearts
+            <span>{autoCost}</span> hearts
           </p>
         </div>
-        <div id="upgrade-click" class="powerup" data-price="100">
+        <div
+          id="upgrade-click"
+          class="powerup"
+          data-price="100"
+          onClick={(e) => {
+            if (count >= x2Cost) {
+              setCount(count - x2Cost);
+              setX2Cost(Math.floor(x2Cost * 1.5));
+              setMultiplier(multiplier * 2);
+            } else {
+              snackBarOpen();
+            }
+          }}
+        >
           <svg
             width="101px"
             height="101px"
@@ -197,7 +347,7 @@ const Lover = () => {
           </svg>
           <p class="name">x2 Click</p>
           <p class="price">
-            <span>100</span> hearts
+            <span>{x2Cost}</span> hearts
           </p>
         </div>
       </div>

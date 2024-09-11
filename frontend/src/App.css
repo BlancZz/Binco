@@ -292,6 +292,13 @@ body {
   animation: rotates 100s linear infinite;
 }
 
+.auto {
+  width: 50px;
+  filter: drop-shadow(0 0 2px white);
+  animation: rotates 100s linear infinite;
+  transform: translateX(90px);
+}
+
 .heart-particle {
   width: 30px;
   position: absolute;
@@ -427,3 +434,178 @@ body {
     transform: translateX(10px);
   }
 }
+
+:root {
+  --all-animations-duration: 1.5s;
+  --bgColor: #bc90fe;
+  --color: rgb(255, 255, 255);
+  --defaultAnimationState: running;
+}
+
+#heart-title-container {
+  animation: ChangeBGcolor var(--all-animations-duration) infinite
+    alternate-reverse;
+  overflow: hidden;
+  animation-play-state: var(--defaultAnimationState);
+}
+
+.main-quote {
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+  animation: h1Change var(--all-animations-duration) infinite alternate-reverse;
+  animation-play-state: var(--defaultAnimationState);
+}
+
+.heart-title {
+  position: relative;
+  animation: pulse var(--all-animations-duration) infinite alternate-reverse;
+  animation-play-state: var(--defaultAnimationState);
+}
+
+.heart-title:before,
+.heart-title:after {
+  position: absolute;
+  content: '';
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: #a0dbff;
+  border-radius: 50px 50px 0 0;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  animation: HeartColor var(--all-animations-duration) infinite
+    alternate-reverse;
+  animation-play-state: var(--defaultAnimationState);
+}
+
+.heart-title:after {
+  left: 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+
+.heart-title span {
+  position: relative;
+  top: 15px;
+  left: 25px;
+  z-index: 1;
+  animation: ChangeColor var(--all-animations-duration) infinite
+    alternate-reverse;
+  animation-play-state: var(--defaultAnimationState);
+  font-family: 'Lovers Quarrel', cursive;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+/* Start: Animation pulse to scale the heart */
+@-webkit-keyframes pulse {
+  form {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+@keyframes pulse {
+  form {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+/* End: Animation pulse to scale the heart */
+
+/* Start: Changing body background to be as opposite as the color */
+@-webkit-keyframes ChangeBGcolor {
+  from {
+    background-color: var(--color);
+  }
+  to {
+    background-color: var(--bgColor);
+  }
+}
+
+@keyframes ChangeBGcolor {
+  from {
+    background-color: var(--color);
+  }
+  to {
+    background-color: var(--bgColor);
+  }
+}
+/* End: Changing body background to be as opposite as the color */
+
+/* Start: Changing header color to be as opposite as the background */
+@-webkit-keyframes Change {
+  from {
+    color: var(--bgColor);
+  }
+  to {
+    color: var(--color);
+  }
+}
+
+@keyframes h1Change {
+  from {
+    color: var(--bgColor);
+  }
+  to {
+    color: var(--color);
+  }
+}
+/* End: Changing header color to be as opposite as the background */
+
+/* Start: Toggling heart background color(red, black) */
+@-webkit-keyframes HeartColor {
+  from {
+    background-color: var(--bgColor);
+  }
+  to {
+    background-color: var(--color);
+  }
+}
+
+@keyframes HeartColor {
+  from {
+    background-color: var(--bgColor);
+  }
+  to {
+    background-color: var(--color);
+  }
+}
+/* Start: Toggling heart background color(red, black) */
+
+/* Start: Changing span color to be as opposite as the background */
+@-webkit-keyframes ChangeColor {
+  from {
+    color: var(--color);
+  }
+  to {
+    color: var(--bgColor);
+  }
+}
+
+@keyframes ChangeColor {
+  from {
+    color: var(--color);
+  }
+  to {
+    color: var(--bgColor);
+  }
+}
+/* End: Changing span color to be as opposite as the background */

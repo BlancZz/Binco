@@ -24,8 +24,10 @@ const StrengthMeter = ({ score }) => {
       case score < 7500:
         return 'You got this!!';
       case score < 10000:
-        return "<3 that's enough :3";
+        return 'Almost :D';
       case score < 20000:
+        return "<3 that's enough :3";
+      case score >= 20000:
         return '<3 ily';
       default:
         return '';
@@ -54,6 +56,8 @@ const StrengthMeter = ({ score }) => {
         return '#ff1861';
       case score < 20000:
         return '#ff59c5';
+      case score >= 20000:
+        return '#4c00ff';
       default:
         return 'none';
     }
@@ -62,8 +66,12 @@ const StrengthMeter = ({ score }) => {
   const changePasswordColor = () => ({
     width:
       score <= 2500
-        ? `${Math.min(50, Math.max(3, score * 0.04))}%`
-        : `${Math.min(97, Math.max(3, score * 0.01))}%`,
+        ? `${Math.max(3, (50 * score) / 2500)}%`
+        : score <= 10000
+        ? `${50 + (30 * (score - 2500)) / 7500}%`
+        : score <= 20000
+        ? `${80 + (20 * (score - 10000)) / 10000}%`
+        : `100%`,
     background: funcProgressColor(),
     height: '7px',
   });

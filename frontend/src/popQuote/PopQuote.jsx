@@ -270,6 +270,7 @@ const PopQuote = () => {
             typography: 'h3',
             margin: '1rem',
             marginLeft: '2rem',
+            cursor: 'pointer',
           }}
           onClick={() => {
             navigate('/');
