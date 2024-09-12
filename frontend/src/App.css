@@ -294,9 +294,8 @@ body {
 
 .auto {
   width: 50px;
-  filter: drop-shadow(0 0 2px white);
-  animation: rotates 100s linear infinite;
-  transform: translateX(90px);
+  filter: drop-shadow(0 0 2px rgb(0, 0, 0));
+  animation: jump 0.5s infinite;
 }
 
 .heart-particle {
@@ -315,7 +314,9 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.4);
-  margin-bottom: 20px;
+  /* margin-bottom: 25px; */
+  padding-top: 12.5px;
+  padding-bottom: 12.5px;
   gap: 50px;
 }
 
@@ -330,10 +331,15 @@ body {
   align-items: center;
   border-radius: 10px;
   background-color: #fff;
+  transition: 0.2s;
+}
+
+.powerup:hover {
+  transform: scale(0.9);
 }
 
 .powerup:active {
-  transform: scale(0.9);
+  transform: scale(0.8);
 }
 
 .powerup .name {
@@ -395,6 +401,18 @@ body {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes jump {
+  33% {
+    transform: translateY(0%);
+  }
+  66% {
+    transform: translateY(-15%);
+  }
+  100% {
+    ransform: translateY(0%);
   }
 }
 

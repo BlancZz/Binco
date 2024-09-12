@@ -524,6 +524,12 @@ const PopQuote = () => {
             </svg>
           </DrawOutlineButton>
         </Box>
+        <footer
+          className="position-fixed w-100 text-center p-3 b-0"
+          style={{ color: /*mode === 'dark' ? '#faf0e6' :*/ '#0D0D0D' }}
+        >
+          &copy; Binco website. All rights reserved.
+        </footer>
       </Box>
     </body>
   );

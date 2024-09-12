@@ -65,6 +65,27 @@ function Dashboard() {
               />
             </Card>
           </BrowserWindow>
+
+          <BrowserWindow>
+            <Card
+              id="dashboard-form"
+              className="d-flex justify-content-center align-items-center"
+              onClick={() => {
+                navigate('/Lover');
+              }}
+              sx={{ cursor: 'pointer' }}
+            >
+              <img
+                style={{
+                  maxWidth: '100%',
+                  overflow: 'hidden',
+                }}
+                sx={{ overflow: 'hidden' }}
+                src={require('./assets/aitowa.png')}
+                alt="Aitowa"
+              />
+            </Card>
+          </BrowserWindow>
           <BrowserWindow>
             <Card
               id="dashboard-form"
@@ -87,19 +108,13 @@ function Dashboard() {
               />
             </Card>
           </BrowserWindow>
-          <BrowserWindow>
-            <Card
-              id="dashboard-form"
-              className="d-flex justify-content-center align-items-center"
-              onClick={() => {
-                navigate('/Lover');
-              }}
-              sx={{ cursor: 'pointer' }}
-            >
-              <h1>WIP - Wasting time with you</h1>
-            </Card>
-          </BrowserWindow>
         </Box>
+        <footer
+          className="position-fixed w-100 text-center p-3 b-0"
+          style={{ color: /*mode === 'dark' ? '#faf0e6' :*/ '#0D0D0D' }}
+        >
+          &copy; Binco website. All rights reserved.
+        </footer>
       </Box>
     </>
   );

@@ -9,6 +9,7 @@ import Snackbar from '@mui/material/Snackbar';
 import StrengthMeter from '../components/ui/strengthMeter';
 
 import smolHeart from './smolHeart.png';
+import Whiteboard from '../components/whiteboard/Whiteboard';
 
 const Lover = () => {
   const navigate = useNavigate();
@@ -46,6 +47,23 @@ const Lover = () => {
     }, 3000);
   };
 
+  const createAuto = () => {
+    const cursorContainer1 = document.getElementById('cursor-container-1');
+    const cursorContainer2 = document.getElementById('cursor-container-2');
+
+    const cursor = document.createElement('img');
+    cursor.setAttribute('src', require('./pointer.png'));
+    cursor.setAttribute('class', 'auto');
+    cursor.style.width = '3rem';
+    cursor.style.height = '3rem';
+
+    if (auto % 2 == 1) {
+      cursorContainer1.appendChild(cursor);
+    } else {
+      cursorContainer2.appendChild(cursor);
+    }
+  };
+
   const [state, setState] = React.useState({
     open: false,
     vertical: 'top',
@@ -74,12 +92,6 @@ const Lover = () => {
       vertical: 'top',
       horizontal: 'center',
     });
-  };
-
-  const autoClick = () => {
-    console.log('what' + count);
-    setCount(count + 2);
-    console.log('pp' + count);
   };
 
   React.useEffect(() => {
@@ -112,66 +124,66 @@ const Lover = () => {
           open={open}
           autoHideDuration={5000}
           onClose={handleClose}
-          message={"You're too poor D:"}
+          message={"You're too heartless D:"}
           key={vertical + horizontal}
         />
       </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          position: 'fixed',
-          top: '15px',
-          left: '0',
-          typography: 'h4',
-          margin: '1rem',
-          marginLeft: '2rem',
-          cursor: 'pointer',
-        }}
-        onClick={() => {
-          navigate('/');
-        }}
-      >
+      <div id="score" class="score">
         <Box
           sx={{
-            marginRight: '1rem',
-          }} /*id="heart-title-container"*/
-        >
-          <svg
-            class="heart-title"
-            width="64px"
-            height="64px"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="#bc90fe"
-          >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              {' '}
-              <path
-                d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
-                fill="#df99ff"
-              ></path>{' '}
-            </g>
-          </svg>
-        </Box>
-        <div
-          style={{
-            textShadow: '0 0 10px #000',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'fixed',
+            top: '20px',
+            left: '0',
+            typography: 'h4',
+            margin: '1rem',
+            marginLeft: '2rem',
+            cursor: 'pointer',
           }}
-          class="main-quote"
+          onClick={() => {
+            navigate('/');
+          }}
         >
-          愛とは
-        </div>
-      </Box>
-      <div id="score" class="score">
+          <Box
+            sx={{
+              marginRight: '1rem',
+            }} /*id="heart-title-container"*/
+          >
+            <svg
+              class="heart-title"
+              width="64px"
+              height="64px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#bfa4fe"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {' '}
+                <path
+                  d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+                  fill="#9b70ff"
+                ></path>{' '}
+              </g>
+            </svg>
+          </Box>
+          <div
+            style={{
+              textShadow: '0 0 10px #000',
+            }}
+            class="main-quote"
+          >
+            愛とは
+          </div>
+        </Box>
         <span>{count}</span> hearts
       </div>
       <Box
@@ -180,51 +192,86 @@ const Lover = () => {
           alignItems: 'center',
           justifyContent: 'center',
           flexDirection: 'column',
+          height: '100vh',
+          width: '100vw',
         }}
       >
         <Box
           sx={{
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            transform: 'scale(1)',
-            margin: '1rem',
-            '&:active': {
-              transition: 'ease-in 0.1s',
-              transform: 'scale(0.9)',
-            },
-          }}
-          onClick={(e) => {
-            setCount(count + multiplier);
-            createParticle(
-              e.clientX + Math.floor(Math.random() * 10 - 5) - 8,
-              e.clientY
-            );
+            width: '100vw',
+            marginBottom: '1rem',
           }}
         >
-          <svg
-            id="heart"
-            class="heart"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="#ff9999"
+          <Box
+            id="cursor-container-1"
+            sx={{
+              display: 'flex',
+              flex: 1.5,
+              width: '33vw',
+              flexWrap: 'wrap',
+              height: '240px',
+              overflow: 'hidden',
+              marginLeft: '2rem',
+            }}
+          ></Box>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '33vw',
+              flex: 1,
+              transform: 'scale(1)',
+
+              '&:active': {
+                transition: 'ease-in 0.1s',
+                transform: 'scale(0.9)',
+              },
+            }}
+            onClick={(e) => {
+              setCount(count + multiplier);
+              createParticle(
+                e.clientX + Math.floor(Math.random() * 10 - 5) - 8,
+                e.clientY
+              );
+            }}
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              {' '}
-              <path
-                d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
-                fill="#fe6262"
-              ></path>{' '}
-            </g>
-          </svg>
+            <svg
+              id="heart"
+              class="heart"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#ff9999"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {' '}
+                <path
+                  d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+                  fill="#fe6262"
+                ></path>{' '}
+              </g>
+            </svg>
+          </Box>
+          <Box
+            id="cursor-container-2"
+            sx={{
+              display: 'flex',
+              width: '33vw',
+              flex: 1.5,
+              flexWrap: 'wrap',
+              height: '240px',
+              overflow: 'hidden',
+              marginRight: '2rem',
+            }}
+          ></Box>
         </Box>
         <StrengthMeter score={count} />
         {/* <img id="heart" class="heart" src="img/heart.png" alt="heart" /> */}
@@ -235,6 +282,13 @@ const Lover = () => {
         <div class="cursors"></div>
       </div>
       <div class="powerups">
+        <Box
+          sx={{
+            color: 'white',
+          }}
+        >
+          {auto + ' cps'}
+        </Box>
         <div
           class="powerup"
           id="auto-click"
@@ -244,17 +298,12 @@ const Lover = () => {
               setCount(count - autoCost);
               setAutoCost(Math.floor(autoCost * 1.1));
               setAuto(auto + 1);
+              createAuto();
             } else {
               snackBarOpen();
             }
           }}
         >
-          {/* <img
-              src="img/cursor.png"
-              alt="cursor"
-              id="cursor"
-              class="cursor auto-click"
-            /> */}
           <svg
             fill="#000000"
             viewBox="0 0 50 50"
@@ -350,6 +399,13 @@ const Lover = () => {
             <span>{x2Cost}</span> hearts
           </p>
         </div>
+        <Box
+          sx={{
+            color: 'white',
+          }}
+        >
+          {'x ' + multiplier + '/click'}
+        </Box>
       </div>
       <div class="heart-clicks"></div>
       <script src="index.js"></script>
