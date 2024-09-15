@@ -1,26 +1,22 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import NavBar from './NavBar';
+// import NavBar from './NavBar';
 
-// import Maths from './Maths';
-// import Connect from './Connect';
 import MessagePage from './components/msger/MessagePage';
-import Whiteboard from './components/whiteboard/Whiteboard';
-import WhiteboardPage from './components/whiteboard/WhiteboardPage';
-import Landing from './Landing';
+// import Landing from './Landing';
 import PopQuote from './popQuote/PopQuote';
 import Dashboard from './Dashboard';
 import Lover from './lover/Lover';
 
-import { ThemeContext } from './ThemeContext';
+// import { ThemeContext } from './ThemeContext';
 
-import DarkBackground from './assets/DarkBackground.png';
-import LightBackground from './assets/LightBackground.png';
-import { useTheme } from './ThemeContext';
-import Starfield from 'react-starfield';
+// import DarkBackground from './assets/DarkBackground.png';
+// import LightBackground from './assets/LightBackground.png';
+// import { useTheme } from './ThemeContext';
+// import Starfield from 'react-starfield';
 
 const PageList = () => {
-  const { mode } = useTheme();
+  // const { mode } = useTheme();
 
   return (
     <>

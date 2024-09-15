@@ -1,14 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import BrowserBackground from './BrowserBackground.svg';
+// import BrowserBackground from './BrowserBackground.svg';
 import BrowserWindow from './components/BrowserWindow';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
+// import CardMedia from '@mui/material/CardMedia';
 import NavBar from './NavBar';
 import { useTheme } from './ThemeContext';
-
-import sprockets from './assets/sprockets.png';
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -62,6 +60,7 @@ function Dashboard() {
                     ? require('./assets/popQuoteCardOpen.png')
                     : require('./assets/popQuoteCardClosed.png')
                 }
+                alt="PopQuote"
               />
             </Card>
           </BrowserWindow>

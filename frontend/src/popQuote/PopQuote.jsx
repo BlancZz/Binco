@@ -17,7 +17,7 @@ import hornAudio from '../assets/audio/horn.mp3';
 import quotes_file from './quotes.txt';
 
 import DrawOutlineButton from '../components/ui/drawOutlineButton.jsx';
-import Modal from '../components/ui/modal.jsx';
+import Modal from './modal.jsx';
 
 import Snackbar from '@mui/material/Snackbar';
 

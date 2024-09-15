@@ -2,8 +2,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { PiLightbulb } from 'react-icons/pi';
 import { useState } from 'react';
 
-import useForm from '../../hook/useForm';
-import DiscordService from '../../services/DiscordService';
+import useForm from '../hook/useForm';
+import DiscordService from '../services/DiscordService';
 
 export const initialFormState = {
   data: {
@@ -43,6 +43,9 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
   const { Send } = DiscordService(clearForm);
 
   const sendToDiscord = () => {
+    if (formData.data.message === '') {
+      return;
+    }
     const description = Object.entries(formData.data, '')
       .map((d) => `${d[0]} : ${d[1]}`)
       .join('\n');
@@ -78,8 +81,8 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                 Contribute Quote!
               </h3>
               <p className="text-center mb-3">
-                Thanks for contributing! Feel free to leave your name or some
-                form of contact :D
+                Sends to my Discord for review. Feel free to leave your name or
+                some form of contact :D
               </p>
               <form className="d-flex flex-column">
                 <div className="mb-3">
@@ -110,27 +113,30 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                       const { name, value } = e.target;
                       setDynamicFormData(name, value);
                     }}
-                  ></textarea>
+                  />
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded"
+                  >
+                    Nah, go back
+                  </button>
+                  <button
+                    type="submit"
+                    onClick={() => {
+                      if (formData.data.message.trim() !== '') {
+                        setIsOpen(false);
+                        formData.data.name = name;
+                        sendToDiscord();
+                      }
+                    }}
+                    className="bg-white hover:opacity-90 transition-opacity text-indigo-600 font-semibold w-full py-2 rounded"
+                  >
+                    Send!
+                  </button>
                 </div>
               </form>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded"
-                >
-                  Nah, go back
-                </button>
-                <button
-                  onClick={() => {
-                    setIsOpen(false);
-                    formData.data.name = name;
-                    sendToDiscord();
-                  }}
-                  className="bg-white hover:opacity-90 transition-opacity text-indigo-600 font-semibold w-full py-2 rounded"
-                >
-                  Send!
-                </button>
-              </div>
             </div>
           </motion.div>
         </motion.div>
